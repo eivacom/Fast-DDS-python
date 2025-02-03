@@ -46,6 +46,16 @@
     public override int GetHashCode() {
         return get_hash();
     }
+
+    public static bool operator ==(EntityId_t id1, EntityId_t id2)
+    {
+        return id1.Equals(id2);
+    }
+    
+    public static bool operator !=(EntityId_t id1, EntityId_t id2)
+    {
+        return !(id1 == id2);
+    }
 %}
 
 %extend eprosima::fastdds::rtps::EntityId_t {
@@ -62,7 +72,7 @@
 
     int get_hash() const
     {
-        return std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
+        return 0;//std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
     }
 }
 
