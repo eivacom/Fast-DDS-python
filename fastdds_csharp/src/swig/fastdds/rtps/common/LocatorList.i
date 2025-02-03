@@ -14,6 +14,7 @@
 
 %{
 #include "fastdds/rtps/common/LocatorList.hpp"
+#include "fastdds/rtps/common/LocatorsIterator.hpp"
 %}
 
 // Ignore deprecated methods
@@ -28,18 +29,20 @@
 %ignore eprosima::fastdds::rtps::Locators::operator ==(const LocatorsIterator& other) const;
 %ignore eprosima::fastdds::rtps::Locators::operator !=(const LocatorsIterator& other) const;
 
+%ignore eprosima::fastdds::rtps::LocatorListIterator;
+%ignore eprosima::fastdds::rtps::LocatorListConstIterator;
+
+// Ignore `operator==` and `operator!=` for `LocatorsIterator`
+%ignore eprosima::fastdds::rtps::LocatorsIterator::operator==;
+%ignore eprosima::fastdds::rtps::LocatorsIterator::operator!=;
+
+// Ignore `operator==` and `operator!=` for `LocatorList`
+%ignore eprosima::fastdds::rtps::LocatorList::operator==;
+%ignore eprosima::fastdds::rtps::LocatorList::operator!=;
+
+%ignore eprosima::fastdds::rtps::LocatorList::begin() const;
+%ignore eprosima::fastdds::rtps::LocatorList::end() const;
+
+%include "fastdds/rtps/common/LocatorsIterator.hpp"
 %include "fastdds/rtps/common/LocatorList.hpp"
 
-// TODO (richiware) missing exceptions
-%extend eprosima::fastdds::rtps::LocatorList
-{
-    size_t __len__() const
-    {
-        return self->size();
-    }
-
-    Locator __getitem__(int i)
-    {
-        return *(self->begin()+i);
-    }
-};

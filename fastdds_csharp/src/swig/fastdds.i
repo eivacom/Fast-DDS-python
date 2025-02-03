@@ -37,11 +37,17 @@ bool has_statistics()
 
 bool has_statistics();
 
+// Some operators are ignored, as there is no such thing in Python.
+// Trying to export them issues a warning
+%ignore *::operator=;
+%ignore *::operator++;
+%ignore *::operator!;
+
 // This ensures that the returned string references can be used with the string API
 // Otherwise, they will be wrapped objects without API
-%typemap(out) std::string& {
-  $result = SWIG_From_std_string(*$1);
-}
+//%typemap(out) std::string& {
+//  $result = SWIG_From_std_string(*$1);
+//}
 
 // Keywords that are not fully supported in SWIG
 // and make not difference in python anyways
@@ -91,13 +97,13 @@ namespace xtypes {
 #endif
 
 %include "fastdds/LibrarySettings.i"
-//%include "fastdds/rtps/common/VendorId_t.i"
-//%include "fastdds/rtps/common/Types.i"
-//%include "fastdds/rtps/common/Time_t.i"
-//%include "fastdds/rtps/common/Locator.i"
-//%include "fastdds/rtps/common/LocatorList.i"
-//%include "fastdds/rtps/common/BinaryProperty.i"
-//%include "fastdds/rtps/common/Property.i"
+%include "fastdds/rtps/common/VendorId_t.i"
+%include "fastdds/rtps/common/Types.i"
+%include "fastdds/rtps/common/Time_t.i"
+%include "fastdds/rtps/common/Locator.i"
+%include "fastdds/rtps/common/LocatorList.i"
+%include "fastdds/rtps/common/BinaryProperty.i"
+%include "fastdds/rtps/common/Property.i"
 //%include "fastdds/rtps/common/EntityId_t.i"
 //%include "fastdds/rtps/common/GuidPrefix_t.i"
 //%include "fastdds/rtps/common/Guid.i"

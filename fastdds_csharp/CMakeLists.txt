@@ -35,7 +35,7 @@ endif()
 ###############################################################################
 # Dependencies
 ###############################################################################
-set(SWIG_EXECUTABLE "C:/Users/mch/.conan2/p/b/swig8cd00a7a6b4cf/p/bin/swig.exe")
+set(SWIG_EXECUTABLE "C:/Users/mch/.conan2/p/b/swig133ab126e8b26/p/bin/swig.exe")
 find_package(SWIG)
 if (NOT SWIG_FOUND)
     # Trick to find swig4.1 in Ubuntu noble.

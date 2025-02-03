@@ -16,4 +16,7 @@
 #include "fastdds/rtps/common/VendorId_t.hpp"
 %}
 
+// Ignore `operator<<` so SWIG does not try to wrap it
+%ignore operator<<(std::ostream&, eprosima::fastdds::rtps::VendorId_t);
+
 %include "fastdds/rtps/common/VendorId_t.hpp"

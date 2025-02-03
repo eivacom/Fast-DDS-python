@@ -16,4 +16,7 @@
 #include "fastdds/LibrarySettings.hpp"
 %}
 
+// Ignore `operator==` so SWIG does not try to wrap it
+%ignore eprosima::fastdds::LibrarySettings::operator==;
+
 %include "fastdds/LibrarySettings.hpp"

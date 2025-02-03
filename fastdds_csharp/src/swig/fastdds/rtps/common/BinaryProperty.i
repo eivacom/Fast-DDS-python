@@ -23,6 +23,7 @@
 %ignore eprosima::fastdds::rtps::BinaryProperty::propagate() const;
 %ignore eprosima::fastdds::rtps::BinaryProperty::name() const;
 %ignore eprosima::fastdds::rtps::BinaryProperty::value() const;
+%ignore eprosima::fastdds::rtps::BinaryProperty::operator==;
 
 // SWIG does not support templates in the generated binding,
 // because not all output languages support them

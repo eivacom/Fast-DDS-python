@@ -14,18 +14,6 @@
 
 %{
 #include "fastdds/rtps/common/EntityId_t.hpp"
-
-// Define a hash method in global scope for EntityId_t types
-// This is necessary if we want other classes to hash an internal EntityId_t
-long hash(const eprosima::fastdds::rtps::EntityId_t& id)
-{
-    long ret = 0;
-    for (unsigned int i = 0; i < eprosima::fastdds::rtps::EntityId_t::size; ++i)
-    {
-        ret = (ret * 31) ^ id.value[i];
-    }
-    return ret;
-}
 %}
 
 // Overloaded constructor ignored
@@ -34,79 +22,49 @@ long hash(const eprosima::fastdds::rtps::EntityId_t& id)
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, EntityId_t&);
 
 // Operators declared outside the class conflict with those declared for other types
-%ignore eprosima::fastdds::rtps::operator==;
+%ignore operator==(const eprosima::fastdds::rtps::EntityId_t&, const eprosima::fastdds::rtps::EntityId_t&);
 %ignore eprosima::fastdds::rtps::operator!=;
+%ignore eprosima::fastdds::rtps::operator<;
 
-// Declare hash so that we do not get a warning
-// This will make an empty class on the target, but the user should not need this anyway.
-namespace std {
-    template <typename T>
-    struct hash;
-}
+%ignore std::hash<eprosima::fastdds::rtps::EntityId_t>;
+%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_hash "private";
+%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_string "private";
+%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_equals "private";
 
-%typemap(in) eprosima::fastdds::rtps::octet[eprosima::fastdds::rtps::EntityId_t::size](eprosima::fastdds::rtps::octet temp[eprosima::fastdds::rtps::EntityId_t::size])
-{
-    if (PyTuple_Check($input))
-    {
-        if (!PyArg_ParseTuple($input, "BBBB",
-                    temp, temp+1, temp+2, temp+3))
-        {
-            PyErr_SetString(PyExc_TypeError, "tuple must have 4 elements");
-            SWIG_fail;
-        }
-        $1 = &temp[0];
+%typemap(cscode) eprosima::fastdds::rtps::EntityId_t
+%{
+    public override string ToString() {
+        return get_string();
     }
-    else
-    {
-        PyErr_SetString(PyExc_TypeError, "expected a tuple.");
-        SWIG_fail;
+    public override int GetHashCode() {
+        return get_hash();
     }
-}
+%}
 
-%typemap(out) eprosima::fastdds::rtps::octet[eprosima::fastdds::rtps::EntityId_t::size]
-{
-    PyObject* python_tuple = PyTuple_New(eprosima::fastdds::rtps::EntityId_t::size);
-
-    if (python_tuple)
-    {
-        for(size_t count = 0; count < eprosima::fastdds::rtps::EntityId_t::size; ++count)
-        {
-            PyTuple_SetItem(python_tuple, count, PyInt_FromLong($1[count]));
-        }
-    }
-
-    $result = python_tuple;
-}
-
-%include "fastdds/rtps/common/EntityId_t.hpp"
-
-// Declare the comparison operators as internal to the class
 %extend eprosima::fastdds::rtps::EntityId_t {
-    bool operator==(const eprosima::fastdds::rtps::EntityId_t& other) const
-    {
-        return *$self == other;
+    bool get_equals(EntityId_t other) {
+        return *self == other;
     }
 
-    bool operator==(uint32_t other) const
-    {
-        return *$self == other;
-    }
-
-    bool operator!=(const eprosima::fastdds::rtps::EntityId_t& other) const
-    {
-        return *$self != other;
-    }
-
-    // Define the hash method using the global one
-    std::string __str__() const
+    std::string get_string() const
     {
         std::ostringstream out;
         out << *$self;
         return out.str();
     }
 
-    long __hash__() const
+    int get_hash() const
     {
-        return hash(*$self);
+        return std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
     }
 }
+
+
+%include "fastdds/rtps/common/EntityId_t.hpp"
+
+
+
+
+
+
+

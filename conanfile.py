@@ -51,7 +51,7 @@ class EivaFastDDSSwig(ConanFile):
         cmake_layout(self, src_folder="fastdds_csharp")
 
     def requirements(self):
-       self.requires("swig/4.0.2")
+       self.requires("swig/4.2.1")
        self.requires("eiva-fast-dds/3.1.0")
 
     def configure(self):

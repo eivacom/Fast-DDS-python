@@ -17,5 +17,10 @@
 %}
 
 %ignore eprosima::fastdds::rtps::operator <<(std::ostream&, const ProtocolVersion_t&);
+%ignore eprosima::fastdds::rtps::ProtocolVersion_t::operator==;
+%ignore eprosima::fastdds::rtps::ProtocolVersion_t::operator!=;
+
+// Ignore the redefinition of VendorId_t
+%ignore eprosima::fastdds::rtps::VendorId_t;
 
 %include "fastdds/rtps/common/Types.hpp"

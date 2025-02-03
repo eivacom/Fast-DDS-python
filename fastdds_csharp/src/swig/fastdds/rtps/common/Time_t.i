@@ -32,4 +32,8 @@
 %ignore eprosima::fastdds::rtps::operator<<(std::ostream&, const Time_t&);
 %ignore eprosima::fastdds::rtps::operator>>(std::istream&, Time_t&);
 
+// Ignore non-const versions
+%ignore eprosima::fastdds::rtps::Time_t::seconds();
+%ignore eprosima::fastdds::rtps::Time_t::fraction();
+
 %include <fastdds/rtps/common/Time_t.hpp>
