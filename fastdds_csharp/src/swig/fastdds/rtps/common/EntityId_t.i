@@ -20,29 +20,36 @@
 %ignore eprosima::fastdds::rtps::EntityId_t::EntityId_t(EntityId_t &&);
 %ignore eprosima::fastdds::rtps::operator <<(std::ostream&, const EntityId_t&);
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, EntityId_t&);
-
-// Operators declared outside the class conflict with those declared for other types
-%ignore operator==(const eprosima::fastdds::rtps::EntityId_t&, const eprosima::fastdds::rtps::EntityId_t&);
+%ignore eprosima::fastdds::rtps::operator==;
 %ignore eprosima::fastdds::rtps::operator!=;
-%ignore eprosima::fastdds::rtps::operator<;
+%ignore eprosima::fastdds::rtps::EntityId_t::operator<;
 
 %ignore std::hash<eprosima::fastdds::rtps::EntityId_t>;
+%ignore std::hash<eprosima::fastdds::rtps::EntityId_t>::operator();
+%ignore std::hash<>;
+
 %csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_hash "private";
 %csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_string "private";
-%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_equals "private";
 
+%typemap(csinterfaces) eprosima::fastdds::rtps::EntityId_t %{ global::System.IDisposable, global::System.IEquatable<EntityId_t> %}
 %typemap(cscode) eprosima::fastdds::rtps::EntityId_t
 %{
+    public override bool Equals(object obj)
+    {
+        return obj is EntityId_t other && Equals(other);
+    }
+
     public override string ToString() {
         return get_string();
     }
+    
     public override int GetHashCode() {
         return get_hash();
     }
 %}
 
 %extend eprosima::fastdds::rtps::EntityId_t {
-    bool get_equals(EntityId_t other) {
+    bool Equals(EntityId_t other) {
         return *self == other;
     }
 
