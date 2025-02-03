@@ -35,7 +35,7 @@ endif()
 ###############################################################################
 # Dependencies
 ###############################################################################
-
+set(SWIG_EXECUTABLE "C:/Users/mch/.conan2/p/b/swig8cd00a7a6b4cf/p/bin/swig.exe")
 find_package(SWIG)
 if (NOT SWIG_FOUND)
     # Trick to find swig4.1 in Ubuntu noble.
@@ -43,7 +43,7 @@ if (NOT SWIG_FOUND)
     find_package(SWIG REQUIRED)
 endif()
 
-include(${SWIG_USE_FILE})
+include(UseSWIG)
 set(CMAKE_SWIG_FLAGS "")
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
