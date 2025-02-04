@@ -14,6 +14,17 @@
 
 %{
 #include "fastdds/rtps/common/EntityId_t.hpp"
+
+long hash(const eprosima::fastdds::rtps::EntityId_t& id)
+{
+    long ret = 0;
+    for (unsigned int i = 0; i < eprosima::fastdds::rtps::EntityId_t::size; ++i)
+    {
+        ret = (ret * 31) ^ id.value[i];
+    }
+    return ret;
+}
+
 %}
 
 // Overloaded constructor ignored
@@ -70,9 +81,9 @@
         return out.str();
     }
 
-    int get_hash() const
+    long get_hash() const
     {
-        return std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
+        return hash(*$self);
     }
 }
 

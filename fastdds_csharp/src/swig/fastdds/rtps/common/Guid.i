@@ -27,32 +27,46 @@ long hash(const eprosima::fastdds::rtps::GUID_t& guid)
 %rename(get_instance_handle) eprosima::fastdds::rtps::GUID_t::operator const InstanceHandle_t&;
 
 // Ignore the global comparison operators and make them class-internal
-%ignore eprosima::fastdds::operator==(const GUID_t&, const GUID_t&);
-%ignore eprosima::fastdds::operator!=(const GUID_t&, const GUID_t&);
-%ignore eprosima::fastdds::operator<(const GUID_t&, const GUID_t&);
+%ignore eprosima::fastdds::rtps::operator==;
+%ignore eprosima::fastdds::rtps::operator!=;
+%ignore eprosima::fastdds::rtps::operator<;
 %ignore eprosima::fastdds::rtps::operator <<(std::ostream&, const GUID_t&);
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, GUID_t&);
 
-%include "fastdds/rtps/common/Guid.hpp"
+%typemap(csinterfaces) eprosima::fastdds::rtps::GUID_t %{ global::System.IDisposable, global::System.IEquatable<GUID_t> %}
+%typemap(cscode) eprosima::fastdds::rtps::GUID_t
+%{
+    public override bool Equals(object obj)
+    {
+        return obj is GUID_t other && Equals(other);
+    }
+
+    public override string ToString() {
+        return get_string();
+    }
+    
+    public override int GetHashCode() {
+        return get_hash();
+    }
+
+    public static bool operator ==(GUID_t id1, GUID_t id2)
+    {
+        return id1.Equals(id2);
+    }
+    
+    public static bool operator !=(GUID_t id1, GUID_t id2)
+    {
+        return !(id1 == id2);
+    }
+%}
 
 // Declare the comparison operators as internal to the class
 %extend eprosima::fastdds::rtps::GUID_t {
-    bool operator==(const eprosima::fastdds::rtps::GUID_t& other) const
-    {
-        return *$self == other;
+    bool Equals(GUID_t other) {
+        return *self == other;
     }
 
-    bool operator!=(const eprosima::fastdds::rtps::GUID_t& other) const
-    {
-        return *$self != other;
-    }
-
-    bool operator<(const eprosima::fastdds::rtps::GUID_t& other) const
-    {
-        return *$self < other;
-    }
-
-    std::string __str__() const
+    std::string get_string() const
     {
         std::ostringstream out;
         out << *$self;
@@ -60,8 +74,10 @@ long hash(const eprosima::fastdds::rtps::GUID_t& guid)
     }
 
     // Define the hash method using the global one
-    long __hash__() const
+    long get_hash() const
     {
         return hash(*$self);
     }
 }
+
+%include "fastdds/rtps/common/Guid.hpp"

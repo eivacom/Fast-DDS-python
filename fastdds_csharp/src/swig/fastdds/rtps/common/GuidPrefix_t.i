@@ -80,7 +80,7 @@ long hash(const eprosima::fastdds::rtps::GuidPrefix_t& prefix)
         return out.str();
     }
 
-    int get_hash() const
+    long get_hash() const
     {
         return hash(*$self);
     }
