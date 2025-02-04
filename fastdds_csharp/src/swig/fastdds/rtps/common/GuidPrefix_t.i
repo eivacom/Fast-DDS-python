@@ -26,60 +26,65 @@ long hash(const eprosima::fastdds::rtps::GuidPrefix_t& prefix)
     }
     return ret;
 }
+
 %}
 
-%typemap(in) eprosima::fastdds::rtps::octet[eprosima::fastdds::rtps::GuidPrefix_t::size](eprosima::fastdds::rtps::octet temp[eprosima::fastdds::rtps::GuidPrefix_t::size])
-{
-    if (PyTuple_Check($input))
-    {
-        if (!PyArg_ParseTuple($input, "BBBBBBBBBBBB",
-                    temp, temp+1, temp+2, temp+3, temp+4, temp+5, temp+6, temp+7, temp+8, temp+9, temp+10, temp+11))
-        {
-            PyErr_SetString(PyExc_TypeError, "tuple must have 12 elements");
-            SWIG_fail;
-        }
-        $1 = &temp[0];
-    }
-    else
-    {
-        PyErr_SetString(PyExc_TypeError, "expected a tuple.");
-        SWIG_fail;
-    }
-}
-
-%typemap(out) eprosima::fastdds::rtps::octet[eprosima::fastdds::rtps::GuidPrefix_t::size]
-{
-    PyObject* python_tuple = PyTuple_New(eprosima::fastdds::rtps::GuidPrefix_t::size);
-
-    if (python_tuple)
-    {
-        for(size_t count = 0; count < eprosima::fastdds::rtps::GuidPrefix_t::size; ++count)
-        {
-            PyTuple_SetItem(python_tuple, count, PyInt_FromLong($1[count]));
-        }
-    }
-
-    $result = python_tuple;
-}
 
 %ignore eprosima::fastdds::rtps::operator <<(std::ostream&, const GuidPrefix_t&);
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, GuidPrefix_t&);
 
-%include "fastdds/rtps/common/GuidPrefix_t.hpp"
+%ignore eprosima::fastdds::rtps::GuidPrefix_t::operator==;
+%ignore eprosima::fastdds::rtps::GuidPrefix_t::operator!=;
+%ignore eprosima::fastdds::rtps::GuidPrefix_t::operator<;
+
+%csmethodmodifiers eprosima::fastdds::rtps::GuidPrefix_t::get_hash "private";
+%csmethodmodifiers eprosima::fastdds::rtps::GuidPrefix_t::get_string "private";
+
+%typemap(csinterfaces) eprosima::fastdds::rtps::GuidPrefix_t %{ global::System.IDisposable, global::System.IEquatable<GuidPrefix_t> %}
+%typemap(cscode) eprosima::fastdds::rtps::GuidPrefix_t
+%{
+    public override bool Equals(object obj)
+    {
+        return obj is GuidPrefix_t other && Equals(other);
+    }
+
+    public override string ToString() {
+        return get_string();
+    }
+    
+    public override int GetHashCode() {
+        return get_hash();
+    }
+
+    public static bool operator ==(GuidPrefix_t id1, GuidPrefix_t id2)
+    {
+        return id1.Equals(id2);
+    }
+    
+    public static bool operator !=(GuidPrefix_t id1, GuidPrefix_t id2)
+    {
+        return !(id1 == id2);
+    }
+%}
 
 // Declare the comparison operators as internal to the class
 %extend eprosima::fastdds::rtps::GuidPrefix_t {
-    std::string __str__() const
+    bool Equals(GuidPrefix_t other) {
+        return *self == other;
+    }
+
+    std::string get_string() const
     {
         std::ostringstream out;
         out << *$self;
         return out.str();
     }
 
-    // Define the hash method using the global one
-    long __hash__() const
+    int get_hash() const
     {
         return hash(*$self);
     }
 }
 
+
+%include "fastdds/rtps/common/GuidPrefix_t.hpp"

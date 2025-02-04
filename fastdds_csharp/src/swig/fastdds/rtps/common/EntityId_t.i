@@ -72,7 +72,7 @@
 
     int get_hash() const
     {
-        return 0;//std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
+        return std::hash<eprosima::fastdds::rtps::EntityId_t>{}(*$self);
     }
 }
 
