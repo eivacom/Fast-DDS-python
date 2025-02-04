@@ -37,64 +37,50 @@ long hash(const eprosima::fastdds::rtps::InstanceHandle_t& handle)
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, InstanceHandle_t&);
 %rename(read_pointer_cast) eprosima::fastdds::rtps::InstanceHandleValue_t::operator const octet* () const;
 %rename(write_pointer_cast) eprosima::fastdds::rtps::InstanceHandleValue_t::operator octet* ();
-
-%typemap(in) eprosima::fastdds::rtps::InstanceHandleValue_t*(eprosima::fastdds::rtps::InstanceHandleValue_t temp)
-{
-    if (PyTuple_Check($input))
-    {
-        eprosima::fastdds::rtps::octet* buf = temp;
-        if (!PyArg_ParseTuple($input, "BBBBBBBBBBBBBBBB",
-                    buf, buf+1, buf+2, buf+3, buf+4, buf+5, buf+6, buf+7, buf+8,
-                    buf+9, buf+10, buf+11, buf+12, buf+13, buf+14, buf+15))
-        {
-            PyErr_SetString(PyExc_TypeError, "tuple must have 16 elements");
-            SWIG_fail;
-        }
-        $1 = &temp;
-    }
-    else
-    {
-        PyErr_SetString(PyExc_TypeError, "expected a tuple.");
-        SWIG_fail;
-    }
-}
-
-%typemap(out) eprosima::fastdds::rtps::InstanceHandleValue_t*
-{
-    constexpr size_t ih_size = std::tuple_size<eprosima::fastdds::rtps::KeyHash_t>::value;
-    PyObject* python_tuple = PyTuple_New(ih_size);
-
-    if (python_tuple)
-    {
-        for(size_t count = 0; count < ih_size; ++count)
-        {
-            PyTuple_SetItem(python_tuple, count, PyInt_FromLong((*$1)[count]));
-        }
-    }
-
-    $result = python_tuple;
-}
+%ignore eprosima::fastdds::rtps::InstanceHandleValue_t::operator==;
+%ignore eprosima::fastdds::rtps::InstanceHandleValue_t::operator<;
 
 // Template for std::vector<InstanceHandle_t>
 %template(InstanceHandleVector) std::vector<eprosima::fastdds::rtps::InstanceHandle_t>;
 %typemap(doctype) std::vector<eprosima::fastdds::rtps::InstanceHandle_t>"InstanceHandleVector";
 
-%include "fastdds/rtps/common/InstanceHandle.hpp"
+%csmethodmodifiers eprosima::fastdds::rtps::InstanceHandle_t::get_hash "private";
+%csmethodmodifiers eprosima::fastdds::rtps::InstanceHandle_t::get_string "private";
+
+%typemap(csinterfaces) eprosima::fastdds::rtps::InstanceHandle_t %{ global::System.IDisposable, global::System.IEquatable<InstanceHandle_t> %}
+%typemap(cscode) eprosima::fastdds::rtps::InstanceHandle_t
+%{
+    public override bool Equals(object obj)
+    {
+        return obj is InstanceHandle_t other && Equals(other);
+    }
+
+    public override string ToString() {
+        return get_string();
+    }
+    
+    public override int GetHashCode() {
+        return get_hash();
+    }
+
+    public static bool operator ==(InstanceHandle_t h1, InstanceHandle_t h2)
+    {
+        return h1.Equals(h2);
+    }
+    
+    public static bool operator !=(InstanceHandle_t h1, InstanceHandle_t h2)
+    {
+        return !(h1 == h2);
+    }
+%}
 
 // Declare the comparison operators as internal to the class
 %extend eprosima::fastdds::rtps::InstanceHandle_t {
-
-    bool operator==(const eprosima::fastdds::rtps::InstanceHandle_t& other) const
-    {
-        return *$self == other;
+    bool Equals(InstanceHandle_t other) {
+        return *self == other;
     }
 
-    bool operator!=(const eprosima::fastdds::rtps::InstanceHandle_t& other) const
-    {
-        return *$self != other;
-    }
-
-    std::string __str__() const
+    std::string get_string() const
     {
         std::ostringstream out;
         out << *$self;
@@ -102,8 +88,12 @@ long hash(const eprosima::fastdds::rtps::InstanceHandle_t& handle)
     }
 
     // Define the hash method using the global one
-    long __hash__() const
+    long get_hash() const
     {
         return hash(*$self);
     }
 }
+
+%include "fastdds/rtps/common/InstanceHandle.hpp"
+
+

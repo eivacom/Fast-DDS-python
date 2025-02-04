@@ -49,14 +49,14 @@ long hash(const eprosima::fastdds::rtps::GUID_t& guid)
         return get_hash();
     }
 
-    public static bool operator ==(GUID_t id1, GUID_t id2)
+    public static bool operator ==(GUID_t g1, GUID_t g2)
     {
-        return id1.Equals(id2);
+        return g1.Equals(g2);
     }
     
-    public static bool operator !=(GUID_t id1, GUID_t id2)
+    public static bool operator !=(GUID_t g1, GUID_t g2)
     {
-        return !(id1 == id2);
+        return !(g1 == g2);
     }
 %}
 
