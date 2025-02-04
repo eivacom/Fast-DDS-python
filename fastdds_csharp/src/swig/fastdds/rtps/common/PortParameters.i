@@ -16,4 +16,6 @@
 #include "fastdds/rtps/common/PortParameters.hpp"
 %}
 
+%rename(Equals) eprosima::fastdds::rtps::PortParameters::operator==;
+
 %include "fastdds/rtps/common/PortParameters.hpp"
