@@ -22,4 +22,14 @@
 %ignore eprosima::fastdds::rtps::operator <<(std::ostream&, const SequenceNumberSet_t&);
 %ignore eprosima::fastdds::rtps::operator >>(std::istream&, SequenceNumber_t&);
 
+%ignore eprosima::fastdds::rtps::SequenceNumber_t::operator +=(int);
+%ignore eprosima::fastdds::rtps::operator >(const SequenceNumber_t&, const SequenceNumber_t&);
+%ignore eprosima::fastdds::rtps::operator >=(const SequenceNumber_t&, const SequenceNumber_t&);
+%ignore eprosima::fastdds::rtps::operator <=(const SequenceNumber_t&, const SequenceNumber_t&);
+%ignore eprosima::fastdds::rtps::operator -(const SequenceNumber_t&, const uint32_t);
+%ignore eprosima::fastdds::rtps::operator +(const SequenceNumber_t&, const uint32_t);
+%ignore eprosima::fastdds::rtps::operator -(const SequenceNumber_t&, const SequenceNumber_t&);
+%ignore eprosima::fastdds::rtps::SequenceNumberHash::operator ()(const SequenceNumber_t&) const;
+%ignore eprosima::fastdds::rtps::SequenceNumberDiff::operator ()(const SequenceNumber_t&, const SequenceNumber_t&) const;
+
 %include "fastdds/rtps/common/SequenceNumber.hpp"
