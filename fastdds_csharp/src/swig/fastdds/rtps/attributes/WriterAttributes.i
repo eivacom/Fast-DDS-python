@@ -18,4 +18,7 @@
 
 %ignore eprosima::fastdds::rtps::WriterAttributes;
 
+%ignore eprosima::fastdds::rtps::WriterTimes::operator==(const WriterTimes&) const;
+
+
 %include "fastdds/rtps/attributes/WriterAttributes.hpp"
