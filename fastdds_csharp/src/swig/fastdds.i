@@ -126,7 +126,7 @@ namespace xtypes {
 %include "fastdds/rtps/common/WriteParams.i"
 %include "fastdds/rtps/builtin/data/ContentFilterProperty.i"
 //
-//%include "fastdds/dds/common/InstanceHandle.i"
+%include "fastdds/dds/common/InstanceHandle.i"
 //%include "fastdds/dds/core/ReturnCode.i"
 //%include "fastdds/dds/core/status/StatusMask.i"
 //%include "fastdds/dds/core/policy/ParameterTypes.i"
