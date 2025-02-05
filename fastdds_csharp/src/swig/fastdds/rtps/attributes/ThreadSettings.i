@@ -16,4 +16,7 @@
 #include "fastdds/rtps/attributes/ThreadSettings.hpp"
 %}
 
+%ignore eprosima::fastdds::rtps::ThreadSettings::operator==(const ThreadSettings&) const;
+%ignore eprosima::fastdds::rtps::ThreadSettings::operator!=(const ThreadSettings&) const;
+
 %include "fastdds/rtps/attributes/ThreadSettings.hpp"
