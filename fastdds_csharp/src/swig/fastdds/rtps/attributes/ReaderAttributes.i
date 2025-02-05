@@ -17,5 +17,7 @@
 %}
 
 %ignore eprosima::fastdds::rtps::ReaderAttributes;
+%ignore eprosima::fastdds::rtps::ReaderTimes::operator==(const ReaderTimes&) const;
+
 
 %include "fastdds/rtps/attributes/ReaderAttributes.hpp"
