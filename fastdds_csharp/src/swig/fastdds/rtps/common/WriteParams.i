@@ -21,6 +21,28 @@
 %ignore eprosima::fastdds::rtps::WriteParams::sample_identity(SampleIdentity &&);
 %ignore eprosima::fastdds::rtps::WriteParams::related_sample_identity(SampleIdentity &&);
 
+// Rename the getter method to sample_identity
+%rename("get_sample_identity") eprosima::fastdds::rtps::WriteParams::sample_identity() const;
 
+// Rename the setter method to sample_identity
+%rename("set_sample_identity") eprosima::fastdds::rtps::SampleIdentity::sample_identity();
+
+// Rename the getter method to related_sample_identity
+%rename("get_related_sample_identity") eprosima::fastdds::rtps::WriteParams::related_sample_identity() const;
+
+// Rename the setter method to related_sample_identity
+%rename("set_related_sample_identity") eprosima::fastdds::rtps::SampleIdentity::related_sample_identity();
+
+// Rename the getter method to related_source_timestamp
+%rename("get_source_timestamp") eprosima::fastdds::rtps::WriteParams::source_timestamp() const;
+
+// Rename the setter method to related_source_timestamp
+%rename("set_source_timestamp") eprosima::fastdds::rtps::SampleIdentity::source_timestamp();
+
+// Rename the getter method to related_source_timestamp
+%rename("get_source_timestamp") eprosima::fastdds::rtps::WriteParams::source_timestamp(const Time_t&);
+
+// Rename the setter method to related_source_timestamp
+%rename("set_source_timestamp") eprosima::fastdds::rtps::SampleIdentity::source_timestamp(Time_t&&);
 
 %include "fastdds/rtps/common/WriteParams.hpp"
