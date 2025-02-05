@@ -27,4 +27,14 @@
 %ignore operator >>(std::istream& input, SampleIdentity& sid);
 %ignore operator <<(std::ostream& output, const SampleIdentity& sid);
 
+%ignore eprosima::fastdds::rtps::SampleIdentity::operator ==(const SampleIdentity&) const;
+%ignore eprosima::fastdds::rtps::SampleIdentity::operator !=(const SampleIdentity&) const;
+%ignore eprosima::fastdds::rtps::SampleIdentity::operator <(const SampleIdentity&) const;
+
+// Rename the getter method to sequence_number
+%rename("get_sequence_number") eprosima::fastdds::rtps::SampleIdentity::sequence_number() const;
+
+// Rename the setter method to sequence_number
+%rename("set_sequence_number") eprosima::fastdds::rtps::PropertyPolicy::sequence_number();
+
 %include "fastdds/rtps/common/SampleIdentity.hpp"

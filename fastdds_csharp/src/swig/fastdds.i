@@ -122,7 +122,7 @@ namespace xtypes {
 %include "fastdds/rtps/attributes/WriterAttributes.i"
 //%include "fastdds/rtps/common/RemoteLocators.i" // depends on ResourceLimitedVector
 %include "fastdds/rtps/common/SequenceNumber.i"
-//%include "fastdds/rtps/common/SampleIdentity.i"
+%include "fastdds/rtps/common/SampleIdentity.i"
 //%include "fastdds/rtps/common/WriteParams.i"
 //%include "fastdds/rtps/builtin/data/ContentFilterProperty.i"
 //
