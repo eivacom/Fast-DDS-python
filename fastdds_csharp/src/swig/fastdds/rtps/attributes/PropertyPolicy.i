@@ -20,4 +20,20 @@
 %ignore eprosima::fastdds::rtps::PropertyPolicy::PropertyPolicy(PropertyPolicy &&);
 %ignore eprosima::fastdds::rtps::PropertyPolicyHelper;
 
+%ignore eprosima::fastdds::rtps::PropertyPolicy::operator==(const PropertyPolicy&) const;
+%ignore eprosima::fastdds::rtps::PropertyPolicy::operator!=(const PropertyPolicy&) const;
+
+
+// Rename the getter method to properties
+%rename("get_properties") eprosima::fastdds::rtps::PropertyPolicy::properties() const;
+
+// Rename the setter method to properties
+%rename("set_properties") eprosima::fastdds::rtps::PropertyPolicy::properties();
+
+// Rename the getter method to binary_properties
+%rename("get_binary_properties") eprosima::fastdds::rtps::PropertyPolicy::binary_properties() const;
+
+// Rename the setter method to binary_properties
+%rename("set_binary_properties") eprosima::fastdds::rtps::PropertyPolicy::binary_properties();
+
 %include "fastdds/rtps/attributes/PropertyPolicy.hpp"
