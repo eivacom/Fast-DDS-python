@@ -109,7 +109,7 @@ namespace xtypes {
 %include "fastdds/rtps/common/Guid.i"
 %include "fastdds/rtps/common/PortParameters.i"
 %include "fastdds/rtps/common/InstanceHandle.i"
-//%include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
+%include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
 //%include "fastdds/utils/collections/ResourceLimitedVector.i"
 //%include "fastdds/rtps/attributes/ResourceManagement.i"
 //%include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.i"

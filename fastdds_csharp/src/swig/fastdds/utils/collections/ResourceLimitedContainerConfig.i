@@ -16,4 +16,7 @@
 #include "fastdds/utils/collections/ResourceLimitedContainerConfig.hpp"
 %}
 
+%ignore eprosima::fastdds::operator==(const ResourceLimitedContainerConfig&, const ResourceLimitedContainerConfig&);
+
+
 %include "fastdds/utils/collections/ResourceLimitedContainerConfig.hpp"
