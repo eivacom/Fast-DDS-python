@@ -16,4 +16,9 @@
 #include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.hpp"
 %}
 
+%ignore eprosima::fastdds::rtps::RemoteLocatorsAllocationAttributes::operator==(const RemoteLocatorsAllocationAttributes&) const;
+%ignore eprosima::fastdds::rtps::SendBuffersAllocationAttributes::operator==(const SendBuffersAllocationAttributes&) const;
+%ignore eprosima::fastdds::rtps::VariableLengthDataLimits::operator==(const VariableLengthDataLimits&) const;
+%ignore eprosima::fastdds::rtps::RTPSParticipantAllocationAttributes::operator==(const RTPSParticipantAllocationAttributes&) const;
+
 %include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.hpp"
