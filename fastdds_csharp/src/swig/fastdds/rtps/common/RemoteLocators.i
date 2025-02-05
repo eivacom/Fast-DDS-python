@@ -14,6 +14,11 @@
 
 %{
 #include "fastdds/rtps/common/RemoteLocators.hpp"
+#include "fastdds/utils/collections/ResourceLimitedVector.hpp"
+#include "fastdds/dds/log/Log.hpp"
 %}
+
+%ignore eprosima::fastdds::rtps::operator<<(std::ostream&, const RemoteLocatorList&);
+%ignore eprosima::fastdds::rtps::operator>>(std::istream&, RemoteLocatorList&);
 
 %include "fastdds/rtps/common/RemoteLocators.hpp"
