@@ -37,6 +37,18 @@
 %rename (ParameterPropertyList_t_iterator) eprosima::fastdds::dds::ParameterPropertyList_t::iterator;
 %rename (ParameterPropertyList_t_const_iterator) eprosima::fastdds::dds::ParameterPropertyList_t::const_iterator;
 
+%ignore eprosima::fastdds::dds::Parameter_t::operator ==(const Parameter_t&) const;
+%ignore eprosima::fastdds::dds::ParameterProperty_t::operator ==(const ParameterProperty_t&) const;
+%ignore eprosima::fastdds::dds::ParameterProperty_t::operator !=(const ParameterProperty_t&) const;
+
+%rename("const_begin") eprosima::fastdds::dds::ParameterPropertyList_t::begin() const;
+%rename("const_end") eprosima::fastdds::dds::ParameterPropertyList_t::end() const;
+
+%ignore eprosima::fastdds::dds::ParameterPropertyList_t::iterator::operator ==(const self_type&) const;
+%ignore eprosima::fastdds::dds::ParameterPropertyList_t::iterator::operator !=(const self_type&) const;
+%ignore eprosima::fastdds::dds::ParameterPropertyList_t::const_iterator::operator ==(const self_type&) const;
+%ignore eprosima::fastdds::dds::ParameterPropertyList_t::const_iterator::operator !=(const self_type&) const;
+
 %include "fastdds/dds/core/policy/ParameterTypes.hpp"
 
 // Deactivate class flattening

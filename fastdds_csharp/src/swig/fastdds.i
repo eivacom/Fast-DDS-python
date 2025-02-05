@@ -129,7 +129,7 @@ namespace xtypes {
 %include "fastdds/dds/common/InstanceHandle.i"
 %include "fastdds/dds/core/ReturnCode.i"
 %include "fastdds/dds/core/status/StatusMask.i"
-//%include "fastdds/dds/core/policy/ParameterTypes.i"
+%include "fastdds/dds/core/policy/ParameterTypes.i"
 //%include "fastdds/dds/core/policy/QosPolicies.i"
 //%include "fastdds/dds/core/Time_t.i"
 //%include "fastdds/dds/topic/IContentFilter.i"
