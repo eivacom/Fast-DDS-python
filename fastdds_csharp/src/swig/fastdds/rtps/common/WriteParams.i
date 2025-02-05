@@ -21,4 +21,6 @@
 %ignore eprosima::fastdds::rtps::WriteParams::sample_identity(SampleIdentity &&);
 %ignore eprosima::fastdds::rtps::WriteParams::related_sample_identity(SampleIdentity &&);
 
+
+
 %include "fastdds/rtps/common/WriteParams.hpp"

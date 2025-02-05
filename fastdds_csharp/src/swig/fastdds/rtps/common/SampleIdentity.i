@@ -35,6 +35,6 @@
 %rename("get_sequence_number") eprosima::fastdds::rtps::SampleIdentity::sequence_number() const;
 
 // Rename the setter method to sequence_number
-%rename("set_sequence_number") eprosima::fastdds::rtps::PropertyPolicy::sequence_number();
+%rename("set_sequence_number") eprosima::fastdds::rtps::SampleIdentity::sequence_number();
 
 %include "fastdds/rtps/common/SampleIdentity.hpp"
