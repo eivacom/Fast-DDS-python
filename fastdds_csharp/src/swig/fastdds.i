@@ -115,7 +115,7 @@ namespace xtypes {
 %include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.i"
 %include "fastdds/rtps/attributes/ThreadSettings.i"
 %include "fastdds/rtps/flowcontrol/FlowControllerSchedulerPolicy.i"
-//%include "fastdds/rtps/flowcontrol/FlowControllerDescriptor.i"
+%include "fastdds/rtps/flowcontrol/FlowControllerDescriptor.i"
 //%include "fastdds/rtps/attributes/PropertyPolicy.i"
 //%include "fastdds/rtps/attributes/RTPSParticipantAttributes.i"
 //%include "fastdds/rtps/attributes/ReaderAttributes.i"

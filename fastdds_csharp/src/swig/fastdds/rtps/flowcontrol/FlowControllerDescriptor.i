@@ -16,6 +16,8 @@
 #include "fastdds/rtps/flowcontrol/FlowControllerDescriptor.hpp"
 %}
 
+%ignore eprosima::fastdds::rtps::FlowControllerDescriptor::operator==(const FlowControllerDescriptor&) const;
+
 // Avoid memory leak because a const char* in our API.
 %nodefaultctor eprosima::fastdds::rtps::FlowControllerDescriptor;
 %{
