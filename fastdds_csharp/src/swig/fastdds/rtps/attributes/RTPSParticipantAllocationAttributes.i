@@ -21,4 +21,10 @@
 %ignore eprosima::fastdds::rtps::VariableLengthDataLimits::operator==(const VariableLengthDataLimits&) const;
 %ignore eprosima::fastdds::rtps::RTPSParticipantAllocationAttributes::operator==(const RTPSParticipantAllocationAttributes&) const;
 
+%ignore eprosima::fastdds::rtps::PDPFactory::operator==(const struct PDPFactory&) const;
+%ignore eprosima::fastdds::rtps::SimpleEDPAttributes::operator==(const SimpleEDPAttributes&) const;
+%ignore eprosima::fastdds::rtps::InitialAnnouncementConfig::operator==(const InitialAnnouncementConfig&) const;
+%ignore eprosima::fastdds::rtps::DiscoverySettings::operator==(const DiscoverySettings&) const;
+%ignore eprosima::fastdds::rtps::BuiltinAttributes::operator==(const BuiltinAttributes&) const;
+
 %include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.hpp"
