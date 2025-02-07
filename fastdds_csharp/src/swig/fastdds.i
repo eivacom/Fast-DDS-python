@@ -158,7 +158,7 @@ namespace xtypes {
 %include "fastdds/dds/core/status/BaseStatus.i"
 //%include "fastdds/dds/core/status/IncompatibleQosStatus.i" // Depends on QosPolicies
 %include "fastdds/dds/core/status/DeadlineMissedStatus.i"
-//%include "fastdds/dds/core/status/SampleRejectedStatus.i"
+%include "fastdds/dds/core/status/SampleRejectedStatus.i"
 //%include "fastdds/dds/core/status/PublicationMatchedStatus.i"
 //%include "fastdds/dds/topic/qos/TopicQos.i"
 //%include "fastdds/dds/topic/TopicDescription.i"
