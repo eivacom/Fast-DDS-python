@@ -137,7 +137,7 @@ namespace xtypes {
 //%include "fastdds/dds/topic/IContentFilterFactory.i" // Depends on TopicDataType
 //%include "fastdds/dds/topic/TypeSupport.i"
 %include "fastdds/dds/builtin/topic/BuiltinTopicKey.i"
-//%include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.i"
+%include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.i"
 //%include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i"
 //%include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i"
 //%include "fastdds/dds/core/condition/Condition.i"
