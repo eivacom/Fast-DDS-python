@@ -154,7 +154,7 @@ namespace xtypes {
 %include "fastdds/dds/core/policy/WriterDataLifecycleQosPolicy.i"
 %include "fastdds/dds/core/status/LivelinessChangedStatus.i"
 %include "fastdds/dds/core/status/MatchedStatus.i"
-//%include "fastdds/dds/core/status/SubscriptionMatchedStatus.i"
+%include "fastdds/dds/core/status/SubscriptionMatchedStatus.i"
 //%include "fastdds/dds/core/status/BaseStatus.i"
 //%include "fastdds/dds/core/status/IncompatibleQosStatus.i"
 //%include "fastdds/dds/core/status/DeadlineMissedStatus.i"
