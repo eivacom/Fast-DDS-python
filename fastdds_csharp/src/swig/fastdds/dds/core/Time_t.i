@@ -32,46 +32,90 @@
 %ignore eprosima::fastdds::dds::operator+(const Time_t&, const Time_t&);
 %ignore eprosima::fastdds::dds::operator-(const Time_t&, const Time_t&);
 
+%ignore eprosima::fastdds::dds::Time_t::is_infinite(const Time_t&) noexcept;
+
+%typemap(cscode) eprosima::fastdds::dds::Time_t
+%{
+    public override bool Equals(object obj)
+    {
+        return obj is Time_t other && Equals(other);
+    }
+
+    public static bool operator ==(Time_t p1, Time_t p2)
+    {
+        return p1.Equals(p2);
+    }
+    
+    public static bool operator !=(Time_t p1, Time_t p2)
+    {
+        return !(p1 == p2);
+    }
+    public static Time_t operator +(Time_t p1, Time_t p2)
+    {
+        return p1.Addition(p2);
+    }
+    public static Time_t operator -(Time_t p1, Time_t p2)
+    {
+        return p1.Subtract(p2);
+    }
+    public static bool operator <(Time_t p1, Time_t p2)
+    {
+        return p1.LessThan(p2);
+    }
+    public static bool operator <=(Time_t p1, Time_t p2)
+    {
+        return p1.LessThanEq(p2);
+    }
+    public static bool operator >(Time_t p1, Time_t p2)
+    {
+        return p1.GreaterThan(p2);
+    }
+    public static bool operator >=(Time_t p1, Time_t p2)
+    {
+        return p1.GreaterThanEq(p2);
+    }
+%}
+
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::Addition "private";
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::Subtract "private";
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::LessThan "private";
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::LessThanEq "private";
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::GreaterThan "private";
+%csmethodmodifiers eprosima::fastdds::dds::Time_t::GreaterThanEq "private";
 // Declare the comparison operators as internal to the class
 %extend eprosima::fastdds::dds::Time_t {
-    bool operator==(const eprosima::fastdds::dds::Time_t& other) const
+    bool Equals(const eprosima::fastdds::dds::Time_t& other) const
     {
         return *$self == other;
     }
 
-    bool operator!=(const eprosima::fastdds::dds::Time_t& other) const
-    {
-        return *$self != other;
-    }
-
-    bool operator<(const eprosima::fastdds::dds::Time_t& other) const
-    {
-        return *$self < other;
-    }
-
-    bool operator>(const eprosima::fastdds::dds::Time_t& other) const
-    {
-        return *$self > other;
-    }
-
-    bool operator<=(const eprosima::fastdds::dds::Time_t& other) const
-    {
-        return *$self <= other;
-    }
-
-    bool operator>=(const eprosima::fastdds::dds::Time_t& other) const
-    {
-        return *$self >= other;
-    }
-
-    eprosima::fastdds::dds::Time_t operator+ (const eprosima::fastdds::dds::Time_t& other) const
+    eprosima::fastdds::dds::Time_t Addition(const eprosima::fastdds::dds::Time_t& other) const
     {
         return *$self + other;
     }
 
-    eprosima::fastdds::dds::Time_t operator- (const eprosima::fastdds::dds::Time_t& other) const
+    eprosima::fastdds::dds::Time_t Subtract(const eprosima::fastdds::dds::Time_t& other) const
     {
         return *$self - other;
+    }
+
+    bool LessThan(const eprosima::fastdds::dds::Time_t& other) const
+    {
+        return *$self < other;
+    }
+
+    bool LessThanEq(const eprosima::fastdds::dds::Time_t& other) const
+    {
+        return *$self <= other;
+    }
+    bool GreaterThan(const eprosima::fastdds::dds::Time_t& other) const
+    {
+        return *$self > other;
+    }
+
+    bool GreaterThanEq(const eprosima::fastdds::dds::Time_t& other) const
+    {
+        return *$self >= other;
     }
 }
 
