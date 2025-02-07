@@ -162,9 +162,9 @@ namespace xtypes {
 %include "fastdds/dds/core/status/PublicationMatchedStatus.i"
 //%include "fastdds/dds/topic/qos/TopicQos.i" // Depends on QosPolicies
 %include "fastdds/dds/topic/TopicDescription.i"
-//%include "fastdds/dds/topic/Topic.i"
-//%include "fastdds/dds/topic/ContentFilteredTopic.i"
-//%include "fastdds/dds/topic/TopicListener.i"
+//%include "fastdds/dds/topic/Topic.i" // Depends on TopicQos
+//%include "fastdds/dds/topic/ContentFilteredTopic.i" // Depends on Topic
+%include "fastdds/dds/topic/TopicListener.i"
 //%include "fastdds/dds/subscriber/qos/ReaderQos.i"
 //%include "fastdds/dds/subscriber/qos/SubscriberQos.i"
 //%include "fastdds/dds/subscriber/qos/DataReaderQos.i"
