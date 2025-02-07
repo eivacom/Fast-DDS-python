@@ -20,5 +20,14 @@
 %ignore eprosima::fastdds::dds::Entity::~Entity;
 %ignore eprosima::fastdds::dds::DomainEntity::DomainEntity;
 %ignore eprosima::fastdds::dds::DomainEntity::~DomainEntity;
+%ignore eprosima::fastdds::dds::Entity::operator ==(const Entity&) const;
 
 %include "fastdds/dds/core/Entity.hpp"
+
+%extend eprosima::fastdds::dds::Entity
+{
+    bool Equals(const eprosima::fastdds::dds::Entity* s1)
+    {
+        return s1 == self;
+    }
+}
