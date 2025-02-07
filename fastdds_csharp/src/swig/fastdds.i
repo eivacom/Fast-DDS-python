@@ -144,7 +144,7 @@ namespace xtypes {
 %include "fastdds/dds/core/Entity.i"
 %include "fastdds/dds/core/condition/WaitSet.i"
 %include "fastdds/dds/core/LoanableTypedCollection.i"
-//%include "fastdds/dds/core/StackAllocatedSequence.i"
+%include "fastdds/dds/core/StackAllocatedSequence.i"
 //%include "fastdds/dds/core/LoanableCollection.i"
 //%include "fastdds/dds/core/UserAllocatedSequence.i"
 //%include "fastdds/dds/core/LoanableSequence.i"
