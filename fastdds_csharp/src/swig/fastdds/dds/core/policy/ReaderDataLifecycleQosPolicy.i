@@ -16,4 +16,14 @@
 #include "fastdds/dds/core/policy/ReaderDataLifecycleQosPolicy.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::ReaderDataLifecycleQosPolicy::operator ==(const ReaderDataLifecycleQosPolicy&) const;
+
 %include "fastdds/dds/core/policy/ReaderDataLifecycleQosPolicy.hpp"
+
+%extend eprosima::fastdds::dds::ReaderDataLifecycleQosPolicy
+{
+    bool Equals(const eprosima::fastdds::dds::ReaderDataLifecycleQosPolicy* s1)
+    {
+        return s1 == self;
+    }
+}
