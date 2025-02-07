@@ -34,7 +34,7 @@
     }
     catch(std::bad_cast ex)
     {
-        SWIG_exception(SWIG_TypeError, "Bad cast of Condition");
+        SWIG_CSharpSetPendingException(SWIG_CSharpInvalidCastException, "Bad cast of Condition");
     }
 }
 
@@ -46,7 +46,7 @@
     }
     catch(std::bad_cast ex)
     {
-        SWIG_exception(SWIG_TypeError, "Bad cast of Condition");
+        SWIG_CSharpSetPendingException(SWIG_CSharpInvalidCastException, "Bad cast of Condition");
     }
 }
 
@@ -58,13 +58,13 @@
     }
     catch(std::bad_cast ex)
     {
-        SWIG_exception(SWIG_TypeError, "Bad cast of Condition");
+        SWIG_CSharpSetPendingException(SWIG_CSharpInvalidCastException, "Bad cast of Condition");
     }
 }
 
 %extend eprosima::fastdds::dds::Condition
 {
-    std::string __str__()
+    std::string ToString()
     {
         if (nullptr != dynamic_cast<eprosima::fastdds::dds::StatusCondition*>(self))
         {
@@ -124,43 +124,40 @@
 
 %extend eprosima::fastdds::dds::StatusCondition
 {
-    std::string __str__()
+    std::string ToString()
     {
         return "StatusCondition";
     }
 
-    bool __eq__(
-            const eprosima::fastdds::dds::StatusCondition* s1)
+    bool Equals(eprosima::fastdds::dds::StatusCondition* other)
     {
-        return s1 == self;
+        return other == self;
     }
 }
 
 %extend eprosima::fastdds::dds::GuardCondition
 {
-    std::string __str__()
+    std::string ToString()
     {
         return "GuardCondition";
     }
 
-    bool __eq__(
-            const eprosima::fastdds::dds::GuardCondition* s1)
+    bool Equals(eprosima::fastdds::dds::GuardCondition* other)
     {
-        return s1 == self;
+        return other == self;
     }
 }
 
 %extend eprosima::fastdds::dds::ReadCondition
 {
-    std::string __str__()
+    std::string ToString()
     {
         return "ReadCondition";
     }
 
-    bool __eq__(
-            const eprosima::fastdds::dds::ReadCondition* s1)
+    bool Equals(eprosima::fastdds::dds::ReadCondition* other)
     {
-        return s1 == self;
+        return other == self;
     }
 }
 
