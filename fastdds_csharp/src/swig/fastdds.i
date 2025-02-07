@@ -152,7 +152,7 @@ namespace xtypes {
 %include "fastdds/dds/core/Types.i"
 %include "fastdds/dds/core/policy/ReaderDataLifecycleQosPolicy.i"
 %include "fastdds/dds/core/policy/WriterDataLifecycleQosPolicy.i"
-//%include "fastdds/dds/core/status/LivelinessChangedStatus.i"
+%include "fastdds/dds/core/status/LivelinessChangedStatus.i"
 //%include "fastdds/dds/core/status/MatchedStatus.i"
 //%include "fastdds/dds/core/status/SubscriptionMatchedStatus.i"
 //%include "fastdds/dds/core/status/BaseStatus.i"
