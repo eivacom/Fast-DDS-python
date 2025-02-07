@@ -165,12 +165,12 @@ namespace xtypes {
 //%include "fastdds/dds/topic/Topic.i" // Depends on TopicQos
 //%include "fastdds/dds/topic/ContentFilteredTopic.i" // Depends on Topic
 %include "fastdds/dds/topic/TopicListener.i"
-//%include "fastdds/dds/subscriber/qos/ReaderQos.i"
-//%include "fastdds/dds/subscriber/qos/SubscriberQos.i"
-//%include "fastdds/dds/subscriber/qos/DataReaderQos.i"
-//%include "fastdds/dds/subscriber/DataReaderListener.i"
-//%include "fastdds/dds/subscriber/SubscriberListener.i"
-//%include "fastdds/dds/subscriber/ViewState.i"
+//%include "fastdds/dds/subscriber/qos/ReaderQos.i" // Depends on QosPolicies
+//%include "fastdds/dds/subscriber/qos/SubscriberQos.i" // Depends on QosPolicies
+//%include "fastdds/dds/subscriber/qos/DataReaderQos.i" // Depends on QosPolicies
+//%include "fastdds/dds/subscriber/DataReaderListener.i" // Depends on IncompatibleQosStatus
+//%include "fastdds/dds/subscriber/SubscriberListener.i" // Can compile but need based class DataReaderListener as warning
+%include "fastdds/dds/subscriber/ViewState.i"
 //%include "fastdds/dds/subscriber/SampleState.i"
 //%include "fastdds/dds/subscriber/InstanceState.i"
 //%include "fastdds/dds/subscriber/SampleInfo.i"
