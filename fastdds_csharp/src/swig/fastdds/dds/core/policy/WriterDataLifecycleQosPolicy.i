@@ -16,4 +16,14 @@
 #include "fastdds/dds/core/policy/WriterDataLifecycleQosPolicy.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::WriterDataLifecycleQosPolicy::operator ==(const WriterDataLifecycleQosPolicy&) const;
+
 %include "fastdds/dds/core/policy/WriterDataLifecycleQosPolicy.hpp"
+
+%extend eprosima::fastdds::dds::WriterDataLifecycleQosPolicy
+{
+    bool Equals(const eprosima::fastdds::dds::WriterDataLifecycleQosPolicy* s1)
+    {
+        return s1 == self;
+    }
+}
