@@ -130,16 +130,16 @@ namespace xtypes {
 %include "fastdds/dds/core/ReturnCode.i"
 %include "fastdds/dds/core/status/StatusMask.i"
 %include "fastdds/dds/core/policy/ParameterTypes.i"
-//%include "fastdds/dds/core/policy/QosPolicies.i" // TODO: template class
+//%include "fastdds/dds/core/policy/QosPolicies.i" // TODO: depends on ResourceLimitedVector
 %include "fastdds/dds/core/Time_t.i"
 %include "fastdds/dds/topic/IContentFilter.i"
 //%include "fastdds/dds/topic/TopicDataType.i" // depends on QosPolicies
 //%include "fastdds/dds/topic/IContentFilterFactory.i" // Depends on TopicDataType
-//%include "fastdds/dds/topic/TypeSupport.i"
+//%include "fastdds/dds/topic/TypeSupport.i" 
 %include "fastdds/dds/builtin/topic/BuiltinTopicKey.i"
 %include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.i"
-//%include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i"
-//%include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i"
+//%include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i" // Depends on  RemoteLocators
+//%include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i" // Depends on  RemoteLocators
 //%include "fastdds/dds/core/condition/Condition.i"
 //%include "fastdds/dds/core/Entity.i"
 //%include "fastdds/dds/core/condition/WaitSet.i"
