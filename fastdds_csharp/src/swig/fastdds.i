@@ -173,7 +173,7 @@ namespace xtypes {
 %include "fastdds/dds/subscriber/ViewState.i"
 %include "fastdds/dds/subscriber/SampleState.i"
 %include "fastdds/dds/subscriber/InstanceState.i"
-//%include "fastdds/dds/subscriber/SampleInfo.i"
+%include "fastdds/dds/subscriber/SampleInfo.i"
 //%include "fastdds/dds/subscriber/DataReader.i"
 //%include "fastdds/dds/subscriber/Subscriber.i"
 //%include "fastdds/dds/publisher/qos/PublisherQos.i"
