@@ -180,15 +180,15 @@ namespace xtypes {
 //%include "fastdds/dds/publisher/qos/WriterQos.i"
 //%include "fastdds/dds/publisher/qos/DataWriterQos.i"
 //%include "fastdds/dds/publisher/DataWriterListener.i"
-//%include "fastdds/dds/publisher/PublisherListener.i"
+//%include "fastdds/dds/publisher/PublisherListener.i" // Can compile but need based class DataWriterListener as warning
 //%include "fastdds/dds/publisher/DataWriter.i"
 //%include "fastdds/dds/publisher/Publisher.i"
 //%include "fastdds/dds/domain/DomainParticipantListener.i"
 //%include "fastdds/dds/domain/qos/DomainParticipantFactoryQos.i"
 //%include "fastdds/dds/domain/qos/DomainParticipantQos.i"
-//%include "fastdds/dds/domain/qos/DomainParticipantExtendedQos.i"
+//%include "fastdds/dds/domain/qos/DomainParticipantExtendedQos.i" // Can compile but need based class DomainParticipantQos as warning
 //%include "fastdds/dds/domain/qos/ReplierQos.i"
 //%include "fastdds/dds/domain/qos/RequesterQos.i"
 //%include "fastdds/dds/domain/DomainParticipant.i"
 //%include "fastdds/dds/domain/DomainParticipantFactory.i"
-//%include "fastdds/dds/xtypes/type_representation/TypeObject.i"
+%include "fastdds/dds/xtypes/type_representation/TypeObject.i"

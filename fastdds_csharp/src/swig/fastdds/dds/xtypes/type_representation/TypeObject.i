@@ -121,4 +121,26 @@
 %ignore eprosima::fastdds::dds::xtypes::TypeInformation::minimal;
 %ignore eprosima::fastdds::dds::xtypes::TypeInformation::complete;
 
+%ignore eprosima::fastdds::dds::xtypes::Dummy::Dummy(Dummy&&) noexcept;
+%ignore eprosima::fastdds::dds::xtypes::Dummy::operator ==(const Dummy&) const;
+%ignore eprosima::fastdds::dds::xtypes::Dummy::operator !=(const Dummy&) const;
+%ignore eprosima::fastdds::dds::xtypes::TypeInformation::operator ==(const TypeInformation&) const;
+%ignore eprosima::fastdds::dds::xtypes::TypeInformation::operator !=(const TypeInformation&) const;
+
 %include "fastdds/dds/xtypes/type_representation/detail/dds_xtypes_typeobject.hpp"
+
+%extend eprosima::fastdds::dds::xtypes::Dummy
+{
+    bool Equals(const eprosima::fastdds::dds::xtypes::Dummy* s1)
+    {
+        return s1 == self;
+    }
+}
+
+%extend eprosima::fastdds::dds::xtypes::TypeInformation
+{
+    bool Equals(const eprosima::fastdds::dds::xtypes::TypeInformation* s1)
+    {
+        return s1 == self;
+    }
+}
