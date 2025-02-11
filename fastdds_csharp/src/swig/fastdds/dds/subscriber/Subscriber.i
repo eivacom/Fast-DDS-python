@@ -19,4 +19,8 @@
 %ignore eprosima::fastdds::dds::Subscriber::Subscriber;
 %ignore eprosima::fastdds::dds::Subscriber::~Subscriber;
 
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::Subscriber::get_default_datareader_qos();
+
+
 %include "fastdds/dds/subscriber/Subscriber.hpp"

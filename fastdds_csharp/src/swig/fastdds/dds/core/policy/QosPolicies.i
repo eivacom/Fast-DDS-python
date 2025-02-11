@@ -58,6 +58,27 @@ namespace dds {
 }
 }
 
+%ignore eprosima::fastdds::dds::DurabilityQosPolicy::operator ==(const DurabilityQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DeadlineQosPolicy::operator ==(const DeadlineQosPolicy&) const;
+%ignore eprosima::fastdds::dds::QosPolicy::operator ==(const QosPolicy &) const;
+%ignore eprosima::fastdds::dds::EntityFactoryQosPolicy::operator ==(const EntityFactoryQosPolicy&) const;
+%ignore eprosima::fastdds::dds::LatencyBudgetQosPolicy::operator ==(const LatencyBudgetQosPolicy&) const;
+%ignore eprosima::fastdds::dds::LivelinessQosPolicy::operator ==(const LivelinessQosPolicy&) const;
+%ignore eprosima::fastdds::dds::ReliabilityQosPolicy::operator ==(const ReliabilityQosPolicy&) const;
+%ignore eprosima::fastdds::dds::OwnershipQosPolicy::operator ==(const OwnershipQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DestinationOrderQosPolicy::operator ==(const DestinationOrderQosPolicy&) const;
+%ignore eprosima::fastdds::dds::GenericDataQosPolicy::operator ==(const GenericDataQosPolicy&) const;
+%ignore eprosima::fastdds::dds::GenericDataQosPolicy::operator ==(const collection_type&) const;
+%ignore eprosima::fastdds::dds::TimeBasedFilterQosPolicy::operator ==(const TimeBasedFilterQosPolicy&) const;
+%ignore eprosima::fastdds::dds::PresentationQosPolicy::operator ==(const PresentationQosPolicy&) const;
+%ignore eprosima::fastdds::dds::Partition_t::operator ==(const Partition_t&) const;
+%ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const self_type&) const;
+%ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const PartitionQosPolicy&) const;
+%ignore eprosima::fastdds::dds::HistoryQosPolicy::operator ==(const HistoryQosPolicy&) const;
+
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::DataSharingQosPolicy::data_sharing_listener_thread();
+
 
 // SWIG does not support templates in the generated binding,
 // because not all output languages support them

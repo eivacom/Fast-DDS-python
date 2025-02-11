@@ -31,6 +31,10 @@
 
 %ignore eprosima::fastdds::dds::TypeSupport::TypeSupport(DynamicPubSubType);
 
+%ignore eprosima::fastdds::dds::TypeSupport::operator ==(const TypeSupport&);
+%ignore eprosima::fastdds::dds::TypeSupport::operator ==(std::nullptr_t) const;
+%ignore eprosima::fastdds::dds::TypeSupport::operator !=(std::nullptr_t) const;
+
 %include "fastdds/dds/topic/TypeSupport.hpp"
 
 // To make SWIG aware of the loss of the ownership, use the DISOWN typemap

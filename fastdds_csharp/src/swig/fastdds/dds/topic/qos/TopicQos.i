@@ -18,4 +18,21 @@
 
 %ignore eprosima::fastdds::dds::TopicQos::representation;
 
+%ignore eprosima::fastdds::dds::TopicQos::operator ==(const TopicQos&) const;
+
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::TopicQos::ownership();
+%ignore eprosima::fastdds::dds::TopicQos::lifespan();
+%ignore eprosima::fastdds::dds::TopicQos::transport_priority();
+%ignore eprosima::fastdds::dds::TopicQos::resource_limits();
+%ignore eprosima::fastdds::dds::TopicQos::history();
+%ignore eprosima::fastdds::dds::TopicQos::destination_order();
+%ignore eprosima::fastdds::dds::TopicQos::reliability();
+%ignore eprosima::fastdds::dds::TopicQos::liveliness();
+%ignore eprosima::fastdds::dds::TopicQos::latency_budget();
+%ignore eprosima::fastdds::dds::TopicQos::deadline();
+%ignore eprosima::fastdds::dds::TopicQos::durability_service();
+%ignore eprosima::fastdds::dds::TopicQos::durability();
+%ignore eprosima::fastdds::dds::TopicQos::topic_data();
+
 %include "fastdds/dds/topic/qos/TopicQos.hpp"
