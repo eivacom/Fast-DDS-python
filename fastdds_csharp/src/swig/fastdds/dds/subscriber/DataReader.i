@@ -35,4 +35,6 @@
     }
 }
 
+%ignore eprosima::fastdds::dds::DataReader::guid();
+
 %include "fastdds/dds/subscriber/DataReader.hpp"

@@ -16,4 +16,13 @@
 #include "fastdds/dds/subscriber/qos/SubscriberQos.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::SubscriberQos::operator ==(const SubscriberQos&) const;
+
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::SubscriberQos::entity_factory();
+%ignore eprosima::fastdds::dds::SubscriberQos::group_data();
+%ignore eprosima::fastdds::dds::SubscriberQos::partition();
+%ignore eprosima::fastdds::dds::SubscriberQos::presentation();
+%ignore eprosima::fastdds::dds::SubscriberQos::presentation();
+
 %include "fastdds/dds/subscriber/qos/SubscriberQos.hpp"
