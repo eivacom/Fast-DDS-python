@@ -16,4 +16,6 @@
 #include "fastdds/dds/domain/qos/RequesterQos.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::RequesterQos::operator ==(const RequesterQos&) const;
+
 %include "fastdds/dds/domain/qos/RequesterQos.hpp"

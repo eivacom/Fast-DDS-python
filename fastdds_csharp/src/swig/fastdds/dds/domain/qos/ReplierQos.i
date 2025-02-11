@@ -16,4 +16,6 @@
 #include "fastdds/dds/domain/qos/ReplierQos.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::ReplierQos::operator ==(const ReplierQos&) const;
+
 %include "fastdds/dds/domain/qos/ReplierQos.hpp"
