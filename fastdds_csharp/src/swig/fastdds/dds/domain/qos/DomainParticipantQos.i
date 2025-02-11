@@ -45,4 +45,19 @@
 
 %ignore eprosima::fastdds::dds::DomainParticipantQos::name;
 
+%ignore eprosima::fastdds::dds::DomainParticipantQos::operator ==(const DomainParticipantQos&) const;
+
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::DomainParticipantQos::typelookup_service_thread();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::discovery_server_thread();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::timed_events_thread();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::builtin_controllers_sender_thread();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::flow_controllers();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::transport();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::wire_protocol();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::properties();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::allocation();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::entity_factory();
+%ignore eprosima::fastdds::dds::DomainParticipantQos::user_data();
+
 %include "fastdds/dds/domain/qos/DomainParticipantQos.hpp"

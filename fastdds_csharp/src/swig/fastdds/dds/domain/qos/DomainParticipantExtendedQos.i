@@ -18,6 +18,6 @@
 
 %ignore eprosima::fastdds::dds::DomainParticipantExtendedQos::operator ==(const DomainParticipantExtendedQos&) const;
 %ignore eprosima::fastdds::dds::DomainParticipantExtendedQos::operator ==(const DomainParticipantQos&) const override;
-%ignore eprosima::fastdds::dds::DomainParticipantExtendedQos::domainId(); // Ignore setter
+%ignore eprosima::fastdds::dds::DomainParticipantExtendedQos::domainId(); // Ignore setter TODO should extend getter and setter
 
 %include "fastdds/dds/domain/qos/DomainParticipantExtendedQos.hpp"
