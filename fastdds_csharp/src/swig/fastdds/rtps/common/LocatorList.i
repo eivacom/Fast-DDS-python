@@ -43,6 +43,9 @@
 %ignore eprosima::fastdds::rtps::LocatorList::begin() const;
 %ignore eprosima::fastdds::rtps::LocatorList::end() const;
 
+// Todo should override?
+%ignore eprosima::fastdds::rtps::LocatorList::copy_to(eprosima::fastdds::ResourceLimitedVector<Locator>&) const;
+
 %include "fastdds/rtps/common/LocatorsIterator.hpp"
 %include "fastdds/rtps/common/LocatorList.hpp"
 

@@ -16,4 +16,8 @@
 #include "fastdds/rtps/builtin/data/ContentFilterProperty.hpp"
 %}
 
+// todo: should use the 
+%ignore eprosima::fastdds::rtps::ContentFilterProperty::expression_parameters;
+
+
 %include "fastdds/rtps/builtin/data/ContentFilterProperty.hpp"
