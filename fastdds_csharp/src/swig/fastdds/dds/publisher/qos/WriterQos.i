@@ -17,5 +17,6 @@
 %}
 
 %ignore eprosima::fastdds::dds::WriterQos::clear;
+%ignore eprosima::fastdds::dds::WriterQos::operator ==(const WriterQos&) const;
 
 %include "fastdds/dds/publisher/qos/WriterQos.hpp"
