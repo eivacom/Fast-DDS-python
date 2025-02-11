@@ -120,7 +120,7 @@ namespace xtypes {
 %include "fastdds/rtps/attributes/RTPSParticipantAttributes.i"
 %include "fastdds/rtps/attributes/ReaderAttributes.i"
 %include "fastdds/rtps/attributes/WriterAttributes.i"
-// %include "fastdds/rtps/common/RemoteLocators.i" // depends on ResourceLimitedVector
+%include "fastdds/rtps/common/RemoteLocators.i"
 %include "fastdds/rtps/common/SequenceNumber.i"
 %include "fastdds/rtps/common/SampleIdentity.i"
 %include "fastdds/rtps/common/WriteParams.i"
@@ -130,16 +130,16 @@ namespace xtypes {
 %include "fastdds/dds/core/ReturnCode.i"
 %include "fastdds/dds/core/status/StatusMask.i"
 %include "fastdds/dds/core/policy/ParameterTypes.i"
-//%include "fastdds/dds/core/policy/QosPolicies.i" // TODO: depends on ResourceLimitedVector
+%include "fastdds/dds/core/policy/QosPolicies.i"
 %include "fastdds/dds/core/Time_t.i"
 %include "fastdds/dds/topic/IContentFilter.i"
-//%include "fastdds/dds/topic/TopicDataType.i" // depends on QosPolicies
-//%include "fastdds/dds/topic/IContentFilterFactory.i" // Depends on TopicDataType
-//%include "fastdds/dds/topic/TypeSupport.i" 
+%include "fastdds/dds/topic/TopicDataType.i"
+%include "fastdds/dds/topic/IContentFilterFactory.i"
+%include "fastdds/dds/topic/TypeSupport.i" 
 %include "fastdds/dds/builtin/topic/BuiltinTopicKey.i"
 %include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.i"
-//%include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i" // Depends on  RemoteLocators
-//%include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i" // Depends on  RemoteLocators
+%include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i"
+%include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i"
 %include "fastdds/dds/core/condition/Condition.i"
 %include "fastdds/dds/core/Entity.i"
 %include "fastdds/dds/core/condition/WaitSet.i"
@@ -156,39 +156,39 @@ namespace xtypes {
 %include "fastdds/dds/core/status/MatchedStatus.i"
 %include "fastdds/dds/core/status/SubscriptionMatchedStatus.i"
 %include "fastdds/dds/core/status/BaseStatus.i"
-//%include "fastdds/dds/core/status/IncompatibleQosStatus.i" // Depends on QosPolicies
+%include "fastdds/dds/core/status/IncompatibleQosStatus.i"
 %include "fastdds/dds/core/status/DeadlineMissedStatus.i"
 %include "fastdds/dds/core/status/SampleRejectedStatus.i"
 %include "fastdds/dds/core/status/PublicationMatchedStatus.i"
-//%include "fastdds/dds/topic/qos/TopicQos.i" // Depends on QosPolicies
+%include "fastdds/dds/topic/qos/TopicQos.i"
 %include "fastdds/dds/topic/TopicDescription.i"
-//%include "fastdds/dds/topic/Topic.i" // Depends on TopicQos
-//%include "fastdds/dds/topic/ContentFilteredTopic.i" // Depends on Topic
+%include "fastdds/dds/topic/Topic.i"
+%include "fastdds/dds/topic/ContentFilteredTopic.i"
 %include "fastdds/dds/topic/TopicListener.i"
-//%include "fastdds/dds/subscriber/qos/ReaderQos.i" // Depends on QosPolicies
-//%include "fastdds/dds/subscriber/qos/SubscriberQos.i" // Depends on QosPolicies
-//%include "fastdds/dds/subscriber/qos/DataReaderQos.i" // Depends on QosPolicies
-//%include "fastdds/dds/subscriber/DataReaderListener.i" // Depends on IncompatibleQosStatus
-//%include "fastdds/dds/subscriber/SubscriberListener.i" // Can compile but need based class DataReaderListener as warning
+%include "fastdds/dds/subscriber/qos/ReaderQos.i"
+%include "fastdds/dds/subscriber/qos/SubscriberQos.i"
+%include "fastdds/dds/subscriber/qos/DataReaderQos.i"
+%include "fastdds/dds/subscriber/DataReaderListener.i"
+%include "fastdds/dds/subscriber/SubscriberListener.i" // Can compile but need based class DataReaderListener as warning
 %include "fastdds/dds/subscriber/ViewState.i"
 %include "fastdds/dds/subscriber/SampleState.i"
 %include "fastdds/dds/subscriber/InstanceState.i"
 %include "fastdds/dds/subscriber/SampleInfo.i"
-//%include "fastdds/dds/subscriber/DataReader.i"
+%include "fastdds/dds/subscriber/DataReader.i"
 //%include "fastdds/dds/subscriber/Subscriber.i"
-//%include "fastdds/dds/publisher/qos/PublisherQos.i"
-//%include "fastdds/dds/publisher/qos/WriterQos.i"
-//%include "fastdds/dds/publisher/qos/DataWriterQos.i"
-//%include "fastdds/dds/publisher/DataWriterListener.i"
-//%include "fastdds/dds/publisher/PublisherListener.i" // Can compile but need based class DataWriterListener as warning
+%include "fastdds/dds/publisher/qos/PublisherQos.i"
+%include "fastdds/dds/publisher/qos/WriterQos.i"
+%include "fastdds/dds/publisher/qos/DataWriterQos.i"
+%include "fastdds/dds/publisher/DataWriterListener.i"
+%include "fastdds/dds/publisher/PublisherListener.i" // Can compile but need based class DataWriterListener as warning
 //%include "fastdds/dds/publisher/DataWriter.i"
 //%include "fastdds/dds/publisher/Publisher.i"
-//%include "fastdds/dds/domain/DomainParticipantListener.i"
-//%include "fastdds/dds/domain/qos/DomainParticipantFactoryQos.i"
-//%include "fastdds/dds/domain/qos/DomainParticipantQos.i"
-//%include "fastdds/dds/domain/qos/DomainParticipantExtendedQos.i" // Can compile but need based class DomainParticipantQos as warning
-//%include "fastdds/dds/domain/qos/ReplierQos.i"
-//%include "fastdds/dds/domain/qos/RequesterQos.i"
+%include "fastdds/dds/domain/DomainParticipantListener.i"
+%include "fastdds/dds/domain/qos/DomainParticipantFactoryQos.i"
+%include "fastdds/dds/domain/qos/DomainParticipantQos.i"
+%include "fastdds/dds/domain/qos/DomainParticipantExtendedQos.i" // Can compile but need based class DomainParticipantQos as warning
+%include "fastdds/dds/domain/qos/ReplierQos.i"
+%include "fastdds/dds/domain/qos/RequesterQos.i"
 //%include "fastdds/dds/domain/DomainParticipant.i"
 //%include "fastdds/dds/domain/DomainParticipantFactory.i"
 %include "fastdds/dds/xtypes/type_representation/TypeObject.i"

@@ -21,4 +21,6 @@
 %ignore eprosima::fastdds::rtps::operator<<(std::ostream&, const RemoteLocatorList&);
 %ignore eprosima::fastdds::rtps::operator>>(std::istream&, RemoteLocatorList&);
 
+resource_limited_vector_template(Locator_tResourceLimitedVector, eprosima::fastdds::rtps::Locator_t)
+
 %include "fastdds/rtps/common/RemoteLocators.hpp"
