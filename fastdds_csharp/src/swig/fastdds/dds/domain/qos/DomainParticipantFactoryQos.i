@@ -16,4 +16,11 @@
 #include "fastdds/dds/domain/qos/DomainParticipantFactoryQos.hpp"
 %}
 
+%ignore eprosima::fastdds::dds::DomainParticipantFactoryQos::operator ==(const DomainParticipantFactoryQos&) const;
+
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::dds::DomainParticipantFactoryQos::file_watch_threads();
+%ignore eprosima::fastdds::dds::DomainParticipantFactoryQos::shm_watchdog_thread();
+%ignore eprosima::fastdds::dds::DomainParticipantFactoryQos::entity_factory();
+
 %include "fastdds/dds/domain/qos/DomainParticipantFactoryQos.hpp"
