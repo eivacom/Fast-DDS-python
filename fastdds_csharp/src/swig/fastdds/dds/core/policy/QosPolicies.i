@@ -72,13 +72,30 @@ namespace dds {
 %ignore eprosima::fastdds::dds::TimeBasedFilterQosPolicy::operator ==(const TimeBasedFilterQosPolicy&) const;
 %ignore eprosima::fastdds::dds::PresentationQosPolicy::operator ==(const PresentationQosPolicy&) const;
 %ignore eprosima::fastdds::dds::Partition_t::operator ==(const Partition_t&) const;
+%ignore eprosima::fastdds::dds::Partition_t::operator !=(const Partition_t&) const;
 %ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const self_type&) const;
+%ignore eprosima::fastdds::dds::PartitionQosPolicy::operator !=(const self_type&) const;
 %ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const PartitionQosPolicy&) const;
 %ignore eprosima::fastdds::dds::HistoryQosPolicy::operator ==(const HistoryQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DeadlineQosPolicy::operator ==(const DeadlineQosPolicy&) const;
+%ignore eprosima::fastdds::dds::ResourceLimitsQosPolicy::operator ==(const ResourceLimitsQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DurabilityServiceQosPolicy::operator ==(const DurabilityServiceQosPolicy&) const;
+%ignore eprosima::fastdds::dds::LifespanQosPolicy::operator ==(const LifespanQosPolicy&) const;
+%ignore eprosima::fastdds::dds::OwnershipStrengthQosPolicy::operator ==(const OwnershipStrengthQosPolicy&) const;
+%ignore eprosima::fastdds::dds::TransportPriorityQosPolicy::operator ==(const TransportPriorityQosPolicy&) const;
+%ignore eprosima::fastdds::dds::PublishModeQosPolicy::operator ==(const PublishModeQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DataRepresentationQosPolicy::operator ==(const DataRepresentationQosPolicy&) const;
+%ignore eprosima::fastdds::dds::TypeConsistencyEnforcementQosPolicy::operator ==(const TypeConsistencyEnforcementQosPolicy&) const;
+%ignore eprosima::fastdds::dds::DisablePositiveACKsQosPolicy::operator ==(const DisablePositiveACKsQosPolicy&) const;
+%ignore eprosima::fastdds::dds::WireProtocolConfigQos::operator ==(const WireProtocolConfigQos&) const;
+%ignore eprosima::fastdds::dds::TransportConfigQos::operator ==(const TransportConfigQos&) const;
+%ignore eprosima::fastdds::dds::RTPSEndpointQos::operator ==(const RTPSEndpointQos&) const;
+%ignore eprosima::fastdds::dds::WriterResourceLimitsQos::operator ==(const WriterResourceLimitsQos&) const;
+%ignore eprosima::fastdds::dds::DataSharingQosPolicy::operator ==(const DataSharingQosPolicy&) const;
 
 // Ignore setter TODO should extend getter and setter
 %ignore eprosima::fastdds::dds::DataSharingQosPolicy::data_sharing_listener_thread();
-
+%ignore eprosima::fastdds::dds::GenericDataQosPolicy::data_vec();
 
 // SWIG does not support templates in the generated binding,
 // because not all output languages support them
