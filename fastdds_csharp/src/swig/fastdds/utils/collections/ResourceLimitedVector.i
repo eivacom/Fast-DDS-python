@@ -80,6 +80,13 @@
     }
 }
 
+// Ignore setter TODO should extend getter and setter
+%ignore eprosima::fastdds::ResourceLimitedVector::data();
+%ignore eprosima::fastdds::ResourceLimitedVector::rend();
+%ignore eprosima::fastdds::ResourceLimitedVector::rbegin();
+%ignore eprosima::fastdds::ResourceLimitedVector::end();
+%ignore eprosima::fastdds::ResourceLimitedVector::begin();
+
 %include "fastdds/utils/collections/ResourceLimitedVector.hpp"
 
 %define resource_limited_vector_template(name_, value_type_)
