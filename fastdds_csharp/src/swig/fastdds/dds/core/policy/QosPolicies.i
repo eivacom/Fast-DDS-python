@@ -73,8 +73,8 @@ namespace dds {
 %ignore eprosima::fastdds::dds::PresentationQosPolicy::operator ==(const PresentationQosPolicy&) const;
 %ignore eprosima::fastdds::dds::Partition_t::operator ==(const Partition_t&) const;
 %ignore eprosima::fastdds::dds::Partition_t::operator !=(const Partition_t&) const;
-%ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const self_type&) const;
-%ignore eprosima::fastdds::dds::PartitionQosPolicy::operator !=(const self_type&) const;
+%ignore eprosima::fastdds::dds::PartitionQosPolicy::const_iterator::operator ==(const self_type&) const;
+%ignore eprosima::fastdds::dds::PartitionQosPolicy::const_iterator::operator !=(const self_type&) const;
 %ignore eprosima::fastdds::dds::PartitionQosPolicy::operator ==(const PartitionQosPolicy&) const;
 %ignore eprosima::fastdds::dds::HistoryQosPolicy::operator ==(const HistoryQosPolicy&) const;
 %ignore eprosima::fastdds::dds::DeadlineQosPolicy::operator ==(const DeadlineQosPolicy&) const;
