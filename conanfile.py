@@ -48,7 +48,7 @@ class EivaFastDDSSwig(ConanFile):
             del self.options.fPIC
 
     def layout(self):
-        cmake_layout(self, src_folder="fastdds_csharp")
+        cmake_layout(self, src_folder="fastdds_csharp_examples")
 
     def requirements(self):
        self.requires("swig/4.2.1")
