@@ -33,7 +33,10 @@
       ],      
       "libraries": [
         "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/lib/libfastcdr-2.2.lib",
-        "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/lib/libfastdds-3.1.lib"
+        "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/lib/libfastdds-3.1.lib",
+        "C:/Users/tvl/.conan2/p/foonaad5c88c228e49/p/lib/foonathan_memory-0.7.3.lib",
+        "C:/Users/tvl/.conan2/p/tinyx4d92bd199a1ef/p/lib/tinyxml2.lib",
+        "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64/ShLwApi.Lib", # PathMatchSpecA
       ],
     }
   ]
