@@ -41,44 +41,6 @@
 // and SWIG does not support it in any case
 %ignore eprosima::fastdds::ResourceLimitedVector::operator const collection_type&;
 
-%exception eprosima::fastdds::ResourceLimitedVector::__getitem__ {
-    try {
-        $action
-    }
-    catch (std::out_of_range) {
-        SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, "Index out of bounds", "");
-        return $null;
-    }
-}
-
-%extend eprosima::fastdds::ResourceLimitedVector {
-
-    size_t __len__() const
-    {
-        return self->size();
-    }
-
-    value_type __getitem__(int i)
-    {
-        if (self->size() <= i)
-        {
-            throw std::out_of_range("Index out of bounds");
-        }
-        return (*self)[i];
-    }
-
-    pointer getitem(size_type n) {
-        return &($self->operator[](n));
-    }
-
-    void setitem(size_type n, value_type v) {
-        $self->operator[](n) = v;
-    }
-
-    void append(value_type v) {
-        $self->push_back(v);
-    }
-}
 
 // Ignore setter TODO should extend getter and setter
 %ignore eprosima::fastdds::ResourceLimitedVector::data();
