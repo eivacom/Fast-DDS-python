@@ -138,7 +138,7 @@ namespace xtypes {
 %include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.i"
 %include "fastdds/dds/builtin/topic/SubscriptionBuiltinTopicData.i"
 %include "fastdds/dds/builtin/topic/PublicationBuiltinTopicData.i"
-// %include "fastdds/dds/core/condition/Condition.i"
+%include "fastdds/dds/core/condition/Condition.i"
 // %include "fastdds/dds/core/Entity.i"
 // %include "fastdds/dds/core/condition/WaitSet.i"
 // %include "fastdds/dds/core/LoanableTypedCollection.i"
