@@ -39,7 +39,7 @@
 
 // In DomainParticipantQos is used the std::shared_ptr<FlowControllerDescriptor>
 // instead of this structure directly.
-%shared_ptr(eprosima::fastdds::rtps::FlowControllerDescriptor);
+// %shared_ptr(eprosima::fastdds::rtps::FlowControllerDescriptor);
 
 %include "fastdds/rtps/flowcontrol/FlowControllerDescriptor.hpp"
 
