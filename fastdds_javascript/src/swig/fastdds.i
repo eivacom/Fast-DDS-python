@@ -97,7 +97,7 @@ namespace xtypes {
 %include "fastdds/LibrarySettings.i"
 %include "fastdds/rtps/common/VendorId_t.i"
 %include "fastdds/rtps/common/Types.i"
-// %include "fastdds/rtps/common/Time_t.i"
+%include "fastdds/rtps/common/Time_t.i"
 // %include "fastdds/rtps/common/Locator.i"
 // %include "fastdds/rtps/common/LocatorList.i"
 // %include "fastdds/rtps/common/BinaryProperty.i"

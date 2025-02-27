@@ -15,7 +15,22 @@
       ],
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
-      "defines": [ "NAPI_DISABLE_CPP_EXCEPTIONS" ],
+      "msvs_settings": {
+        "VCCLCompilerTool": {
+          "RuntimeLibrary": 3,
+          "ExceptionHandling": 1,
+          "AdditionalOptions": [
+            "/bigobj",
+            "/GR",
+            "/MD"
+          ]
+        }
+      },
+      "defines": [
+        "NAPI_DISABLE_CPP_EXCEPTIONS",
+        "FASTDDS_NO_AUTOLINK",
+        "FASTRTPS_NO_LIB"
+      ],      
       "libraries": [
         "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/lib/libfastcdr-2.2.lib",
         "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/lib/libfastdds-3.1.lib"
