@@ -39,55 +39,6 @@ long hash(const eprosima::fastdds::rtps::EntityId_t& id)
 %ignore std::hash<eprosima::fastdds::rtps::EntityId_t>::operator();
 %ignore std::hash<>;
 
-%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_hash "private";
-%csmethodmodifiers eprosima::fastdds::rtps::EntityId_t::get_string "private";
-
-%typemap(csinterfaces) eprosima::fastdds::rtps::EntityId_t %{ global::System.IDisposable, global::System.IEquatable<EntityId_t> %}
-%typemap(cscode) eprosima::fastdds::rtps::EntityId_t
-%{
-    public override bool Equals(object obj)
-    {
-        return obj is EntityId_t other && Equals(other);
-    }
-
-    public override string ToString() {
-        return get_string();
-    }
-    
-    public override int GetHashCode() {
-        return get_hash();
-    }
-
-    public static bool operator ==(EntityId_t id1, EntityId_t id2)
-    {
-        return id1.Equals(id2);
-    }
-    
-    public static bool operator !=(EntityId_t id1, EntityId_t id2)
-    {
-        return !(id1 == id2);
-    }
-%}
-
-%extend eprosima::fastdds::rtps::EntityId_t {
-    bool Equals(EntityId_t other) {
-        return *self == other;
-    }
-
-    std::string get_string() const
-    {
-        std::ostringstream out;
-        out << *$self;
-        return out.str();
-    }
-
-    long get_hash() const
-    {
-        return hash(*$self);
-    }
-}
-
-
 %include "fastdds/rtps/common/EntityId_t.hpp"
 
 
