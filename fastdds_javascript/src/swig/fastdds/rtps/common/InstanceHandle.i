@@ -44,56 +44,6 @@ long hash(const eprosima::fastdds::rtps::InstanceHandle_t& handle)
 %template(InstanceHandleVector) std::vector<eprosima::fastdds::rtps::InstanceHandle_t>;
 %typemap(doctype) std::vector<eprosima::fastdds::rtps::InstanceHandle_t>"InstanceHandleVector";
 
-%csmethodmodifiers eprosima::fastdds::rtps::InstanceHandle_t::get_hash "private";
-%csmethodmodifiers eprosima::fastdds::rtps::InstanceHandle_t::get_string "private";
-
-%typemap(csinterfaces) eprosima::fastdds::rtps::InstanceHandle_t %{ global::System.IDisposable, global::System.IEquatable<InstanceHandle_t> %}
-%typemap(cscode) eprosima::fastdds::rtps::InstanceHandle_t
-%{
-    public override bool Equals(object obj)
-    {
-        return obj is InstanceHandle_t other && Equals(other);
-    }
-
-    public override string ToString() {
-        return get_string();
-    }
-    
-    public override int GetHashCode() {
-        return get_hash();
-    }
-
-    public static bool operator ==(InstanceHandle_t h1, InstanceHandle_t h2)
-    {
-        return h1.Equals(h2);
-    }
-    
-    public static bool operator !=(InstanceHandle_t h1, InstanceHandle_t h2)
-    {
-        return !(h1 == h2);
-    }
-%}
-
-// Declare the comparison operators as internal to the class
-%extend eprosima::fastdds::rtps::InstanceHandle_t {
-    bool Equals(InstanceHandle_t other) {
-        return *self == other;
-    }
-
-    std::string get_string() const
-    {
-        std::ostringstream out;
-        out << *$self;
-        return out.str();
-    }
-
-    // Define the hash method using the global one
-    long get_hash() const
-    {
-        return hash(*$self);
-    }
-}
-
 %include "fastdds/rtps/common/InstanceHandle.hpp"
 
 

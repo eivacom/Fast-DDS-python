@@ -106,7 +106,7 @@ namespace xtypes {
 %include "fastdds/rtps/common/GuidPrefix_t.i"
 %include "fastdds/rtps/common/Guid.i"
 %include "fastdds/rtps/common/PortParameters.i"
-// %include "fastdds/rtps/common/InstanceHandle.i"
+%include "fastdds/rtps/common/InstanceHandle.i"
 // %include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
 // %include "fastdds/utils/collections/ResourceLimitedVector.i" // TODO: Need to implement iterator
 // %include "fastdds/rtps/attributes/ResourceManagement.i"
