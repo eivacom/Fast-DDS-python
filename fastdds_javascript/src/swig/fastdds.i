@@ -107,12 +107,12 @@ namespace xtypes {
 %include "fastdds/rtps/common/Guid.i"
 %include "fastdds/rtps/common/PortParameters.i"
 %include "fastdds/rtps/common/InstanceHandle.i"
-// %include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
-// %include "fastdds/utils/collections/ResourceLimitedVector.i" // TODO: Need to implement iterator
-// %include "fastdds/rtps/attributes/ResourceManagement.i"
-// %include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.i"
-// %include "fastdds/rtps/attributes/ThreadSettings.i"
-// %include "fastdds/rtps/flowcontrol/FlowControllerSchedulerPolicy.i"
+%include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
+%include "fastdds/utils/collections/ResourceLimitedVector.i" // TODO: Need to implement iterator
+%include "fastdds/rtps/attributes/ResourceManagement.i"
+%include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.i"
+%include "fastdds/rtps/attributes/ThreadSettings.i"
+%include "fastdds/rtps/flowcontrol/FlowControllerSchedulerPolicy.i"
 // %include "fastdds/rtps/flowcontrol/FlowControllerDescriptor.i"
 // %include "fastdds/rtps/attributes/PropertyPolicy.i"
 // %include "fastdds/rtps/attributes/RTPSParticipantAttributes.i"
