@@ -1,0 +1,14 @@
+{
+  "name": "swig-fastdds",
+  "version": "1.0.0",
+  "description": "SWIG Fastdds example",
+  "main": "test_javascript.js",
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean",
+    "test": "node test_javascript.js"
+  },
+  "dependencies": {
+    "node-addon-api": "^5.0.0"
+  }
+}

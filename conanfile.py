@@ -17,6 +17,7 @@ from conan.tools.microsoft import check_min_vs, is_msvc_static_runtime, is_msvc,
 from conan.tools.scm import Version
 import os
 import textwrap
+import shutil
 
 required_conan_version = ">=2.0.6"
 class EivaFastDDSSwig(ConanFile):
@@ -48,7 +49,8 @@ class EivaFastDDSSwig(ConanFile):
             del self.options.fPIC
 
     def layout(self):
-        cmake_layout(self, src_folder="fastdds_csharp")
+        cmake_layout(self, src_folder="fastdds_javascript")
+        self.folders.build = "build_swig"
 
     def requirements(self):
        self.requires("swig/4.2.1")

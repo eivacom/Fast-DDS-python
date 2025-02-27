@@ -1,0 +1,30 @@
+// Copyright 2022 Proyectos y Sistemas de Mantenimiento SL (eProsima).
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+%{
+#include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.hpp"
+%}
+
+%ignore eprosima::fastdds::rtps::RemoteLocatorsAllocationAttributes::operator==(const RemoteLocatorsAllocationAttributes&) const;
+%ignore eprosima::fastdds::rtps::SendBuffersAllocationAttributes::operator==(const SendBuffersAllocationAttributes&) const;
+%ignore eprosima::fastdds::rtps::VariableLengthDataLimits::operator==(const VariableLengthDataLimits&) const;
+%ignore eprosima::fastdds::rtps::RTPSParticipantAllocationAttributes::operator==(const RTPSParticipantAllocationAttributes&) const;
+
+%ignore eprosima::fastdds::rtps::PDPFactory::operator==(const struct PDPFactory&) const;
+%ignore eprosima::fastdds::rtps::SimpleEDPAttributes::operator==(const SimpleEDPAttributes&) const;
+%ignore eprosima::fastdds::rtps::InitialAnnouncementConfig::operator==(const InitialAnnouncementConfig&) const;
+%ignore eprosima::fastdds::rtps::DiscoverySettings::operator==(const DiscoverySettings&) const;
+%ignore eprosima::fastdds::rtps::BuiltinAttributes::operator==(const BuiltinAttributes&) const;
+
+%include "fastdds/rtps/attributes/RTPSParticipantAllocationAttributes.hpp"
