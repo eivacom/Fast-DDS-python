@@ -25,8 +25,8 @@
 // SWIG does not support templates in the generated binding,
 // because not all output languages support them
 // We must explicitly declare the specializations of the templates
-%template(TransportDescriptorInterfaceShrPtr) std::shared_ptr<eprosima::fastdds::rtps::TransportDescriptorInterface>;
-%template(TransportDescriptorInterfaceVector) std::vector<std::shared_ptr<eprosima::fastdds::rtps::TransportDescriptorInterface>>;
+// %template(TransportDescriptorInterfaceShrPtr) std::shared_ptr<eprosima::fastdds::rtps::TransportDescriptorInterface>;
+// %template(TransportDescriptorInterfaceVector) std::vector<std::shared_ptr<eprosima::fastdds::rtps::TransportDescriptorInterface>>;
 // The 'enum' here is very important, or SWIG will create a faulty wrapper
 //    * Enums are mapped as integer constants
 //    * The template expects a class type
