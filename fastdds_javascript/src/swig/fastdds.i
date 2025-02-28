@@ -190,3 +190,7 @@ namespace xtypes {
 %include "fastdds/dds/domain/DomainParticipant.i"
 %include "fastdds/dds/domain/DomainParticipantFactory.i"
 %include "fastdds/dds/xtypes/type_representation/TypeObject.i"
+// HelloWorld example
+%include "../../fastdds_javascript_examples/HelloWorldExample/HelloWorld.i"
+%include "../../fastdds_javascript_examples/HelloWorldExample/HelloWorldPubSubTypes.i"
+

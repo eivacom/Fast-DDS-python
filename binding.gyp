@@ -3,12 +3,15 @@
     {
       "target_name": "fastdds",
       "sources": [
-        "./build_swig/src/swig/CMakeFiles/fastdds.dir/fastddsJAVASCRIPT_wrap.cxx"
+        "./build_swig/src/swig/CMakeFiles/fastdds.dir/fastddsJAVASCRIPT_wrap.cxx",
+        "./fastdds_csharp_examples/HelloWorldExample/HelloWorldPubSubTypes.cxx",
+        "./fastdds_csharp_examples/HelloWorldExample/HelloWorldTypeObjectSupport.cxx"
       ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",
         "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/include",
-        "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/include"
+        "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/include",
+        "C:/source/Repos/Fast-DDS-python/fastdds_javascript_examples/HelloWorldExample"
       ],
       "dependencies": [
         "<!(node -p \"require('node-addon-api').gyp\")"

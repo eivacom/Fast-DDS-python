@@ -15,6 +15,9 @@ set(SWIG_INTERFACE_FILE
 include_directories("C:/Users/tvl/AppData/Local/node-gyp/Cache/18.16.0/include/node")
 include_directories("C:/source/Repos/Fast-DDS-python/node_modules/node-addon-api")
 
+# For HelloWorld example
+include_directories("C:/source/Repos/Fast-DDS-python/fastdds_javascript_examples/HelloWorldExample")
+
 # Set SWIG file properties
 set_source_files_properties(${SWIG_INTERFACE_FILE} PROPERTIES
     CPLUSPLUS ON
@@ -29,6 +32,8 @@ swig_add_library(${MODULE_NAME}
     TYPE MODULE
     LANGUAGE javascript
     SOURCES ${SWIG_INTERFACE_FILE}
+        C:/source/Repos/Fast-DDS-python/fastdds_javascript_examples/HelloWorldExample/HelloWorldTypeObjectSupport.cxx
+        C:/source/Repos/Fast-DDS-python/fastdds_javascript_examples/HelloWorldExample/HelloWorldPubSubTypes.cxx
     )
 
 # Platform-specific settings

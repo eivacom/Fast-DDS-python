@@ -12,14 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-%{
-#include "fastdds/dds/core/LoanableTypedCollection.hpp"
-%}
-
-// Operator[] is ignored by SWIG because it does not map correctly to target languages
-// mostly because of its dual getter/setter nature
-// We can ignore them and extend to make the getter and setter methods explicit and break the overload
-%ignore eprosima::fastdds::dds::LoanableTypedCollection::operator[];
-
-%include "fastdds/dds/core/LoanableTypedCollection.hpp"
-
+struct HelloWorld
+{
+    unsigned long index;
+    string message;
+};
