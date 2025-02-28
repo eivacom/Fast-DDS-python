@@ -66,6 +66,13 @@
     }
 }
 
+// Add explicit casting support
+%extend eprosima::fastdds::dds::Condition {
+    static eprosima::fastdds::dds::StatusCondition* as_StatusConditions(eprosima::fastdds::dds::Condition* obj) {
+        return dynamic_cast<eprosima::fastdds::dds::StatusCondition*>(obj);
+    }
+}
+
 // Template for ConditionSeq
 %template(ConditionSeq) std::vector<eprosima::fastdds::dds::Condition*>;
 
