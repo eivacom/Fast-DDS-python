@@ -1,11 +1,9 @@
 @echo off
-echo Cleaning up build directories...
-rm -r .\build_swig\
-rm -r .\build\
+echo Building fastdds node package...
+cd /d fastdds_javascript
+call build_javascript.bat
 
-echo Running Conan build...
-conan build . -pr:h=Visual-Studio-2022-v143-x64-RelWithDebInfo -pr:b=Visual-Studio-2022-v143-x64-RelWithDebInfo --build=missing
-
-echo Running npm build...
-npm run build
+echo Building fastdds hellow world node package...
+cd /d fastdds_javascript_examples
+call build_javascript.bat
 

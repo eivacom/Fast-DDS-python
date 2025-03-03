@@ -1,5 +1,6 @@
 // Load the example module
-const fastdds = require('./build/Release/fastdds.node');
+const fastdds = require('./fastdds_javascript/build/Release/fastdds.node');
+const helloWorld = require('./fastdds_javascript_examples/build/Release/hello_world.node');
 
 // console.log(fastdds);
 
@@ -12,10 +13,10 @@ var sub = node.create_subscriber(subqos);
 
 var tqos = new fastdds.TopicQos();
 
-var type = new fastdds.TypeSupport(new fastdds.HelloWorldPubSubType());
+var type = new fastdds.TypeSupport(new helloWorld.HelloWorldPubSubType());
 var returnCode = type.register_type(node);
 
-var topic = node.create_topic("hello_world_topic", type.get_type_name(), tqos);
+var topic = node.create_topic("hello_world_topic_tvl", type.get_type_name(), tqos);
 
 var drQos = new fastdds.DataReaderQos();
 // var dataReaderListener = new fastdds.DataReaderListener();
@@ -28,7 +29,7 @@ var wait_set_ = new fastdds.WaitSet();
 wait_set_.attach_condition(dataReader.get_statuscondition());
 wait_set_.attach_condition(terminate_condition_);
 
-var hello_ = new fastdds.HelloWorld();
+var hello_ = new helloWorld.HelloWorld();
 let is_stopped = false;
 let sample_count = 0;
 while (!is_stopped)

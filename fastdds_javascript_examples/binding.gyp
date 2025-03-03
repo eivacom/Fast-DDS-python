@@ -1,14 +1,17 @@
 {
   "targets": [
     {
-      "target_name": "fastdds",
+      "target_name": "hello_world",
       "sources": [
-        "./build_swig/src/swig/CMakeFiles/fastdds.dir/fastddsJAVASCRIPT_wrap.cxx"
+        "master_wrap.cxx",
+        "HelloWorldExample/HelloWorldPubSubTypes.cxx",
+        "HelloWorldExample/HelloWorldTypeObjectSupport.cxx"
       ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",
         "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/include",
-        "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/include"
+        "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/include",
+        "HelloWorldExample"
       ],
       "dependencies": [
         "<!(node -p \"require('node-addon-api').gyp\")"

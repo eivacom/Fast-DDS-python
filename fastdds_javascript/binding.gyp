@@ -3,7 +3,7 @@
     {
       "target_name": "fastdds",
       "sources": [
-        "./build_swig/src/swig/CMakeFiles/fastdds.dir/fastddsJAVASCRIPT_wrap.cxx"
+        "src/swig/fastdds_wrap.cxx"
       ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",

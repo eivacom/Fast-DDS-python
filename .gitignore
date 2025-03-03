@@ -18,3 +18,4 @@ build_swig/
 
 # ignore node_modules
 node_modules
+fastdds_javascript_examples/master_wrap.cxx
