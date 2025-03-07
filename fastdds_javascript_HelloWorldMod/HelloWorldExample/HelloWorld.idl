@@ -1,0 +1,9 @@
+@extensibility(APPENDABLE)
+struct HelloWorld
+{
+	unsigned long index;
+	long x;
+	long y;
+	long z;
+	string message;
+};

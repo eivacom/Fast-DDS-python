@@ -4,24 +4,66 @@ const helloWorld = require('./fastdds_javascript_examples/build/Release/hello_wo
 
 // console.log(fastdds);
 
+// var factory = fastdds.DomainParticipantFactory.get_instance();
+// var pqos = new fastdds.DomainParticipantQos();
+// var participant_ = factory.create_participant(0, pqos);
+
+// var subqos = fastdds.SUBSCRIBER_QOS_DEFAULT;
+// var subscriber_ = participant_.create_subscriber(subqos);
+
+// var tqos = new fastdds.TopicQos();
+
+// var type = new fastdds.TypeSupport(new helloWorld.HelloWorldPubSubType());
+// var returnCode = type.register_type(participant_);
+
+// var topic = participant_.create_topic("hello_world_topic", type.get_type_name(), tqos);
+
+// var drQos = fastdds.DATAREADER_QOS_DEFAULT
+// subscriber.get_default_datareader_qos(reader_qos);;
+// // var dataReaderListener = new fastdds.DataReaderListener();
+// // var dataReader = sub.create_datareader_topic(topic, drQos, dataReaderListener, fastdds.StatusMask.all());
+// var dataReader = sub.create_datareader(topic, drQos, null, fastdds.StatusMask.all());
+
+
+
+// Create the participant
 var factory = fastdds.DomainParticipantFactory.get_instance();
-var pqos = new fastdds.DomainParticipantQos();
-var node = factory.create_participant(0, pqos);
+var participant_ = factory.create_participant_with_default_profile(null, fastdds.StatusMask.none());
+if (participant_ == null)
+{
+    console.log("Participant initialization failed");
+}
 
-var subqos = new fastdds.SubscriberQos();
-var sub = node.create_subscriber(subqos);
+// Register the type
+var type_ = new fastdds.TypeSupport(new helloWorld.HelloWorldPubSubType());
+type_.register_type(participant_);
 
-var tqos = new fastdds.TopicQos();
+// Create the subscriber
+var sub_qos = fastdds.SUBSCRIBER_QOS_DEFAULT;
+participant_.get_default_subscriber_qos(sub_qos);
+var subscriber_ = participant_.create_subscriber(sub_qos, null, fastdds.StatusMask.none());
+if (subscriber_ == null)
+{
+    console.log("Subscriber initialization failed");
+}
 
-var type = new fastdds.TypeSupport(new helloWorld.HelloWorldPubSubType());
-var returnCode = type.register_type(node);
+// Create the topic
+var topic_qos = fastdds.TOPIC_QOS_DEFAULT;
+participant_.get_default_topic_qos(topic_qos);
+var topic_ = participant_.create_topic("hello_world_topic", type_.get_type_name(), topic_qos);
+if (topic_ == null)
+{
+    console.log("Topic initialization failed");
+}
 
-var topic = node.create_topic("hello_world_topic_tvl", type.get_type_name(), tqos);
-
-var drQos = new fastdds.DataReaderQos();
-// var dataReaderListener = new fastdds.DataReaderListener();
-// var dataReader = sub.create_datareader_topic(topic, drQos, dataReaderListener, fastdds.StatusMask.all());
-var dataReader = sub.create_datareader(topic, drQos, null, fastdds.StatusMask.all());
+// Create the reader
+var reader_qos = fastdds.DATAREADER_QOS_DEFAULT;
+subscriber_.get_default_datareader_qos(reader_qos);
+var dataReader = subscriber_.create_datareader(topic_, reader_qos, null, fastdds.StatusMask.all());
+if (dataReader == null)
+{
+    console.log("DataReader initialization failed");
+}
 
 var terminate_condition_ = new fastdds.GuardCondition();
 var wait_set_ = new fastdds.WaitSet();

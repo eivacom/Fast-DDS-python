@@ -1,0 +1,12 @@
+{
+  "name": "swig-fastdds",
+  "version": "1.0.0",
+  "description": "SWIG Fastdds hello world example",  
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean"
+  },
+  "dependencies": {
+    "node-addon-api": "^5.0.0"
+  }
+}
