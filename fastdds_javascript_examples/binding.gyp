@@ -1,8 +1,8 @@
 {
   "variables": {
-    "fastdds_include_path": "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/include",
+    "fastdds_include_path": "C:/Users/tvl/.conan2/p/b/eiva-cf579c7c05774/p/include",
     "fastcdr_include_path": "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/include",
-    "fastdds_lib_path": "C:/Users/tvl/.conan2/p/eiva-eb917848503e2/p/lib/libfastdds-3.1.lib",
+    "fastdds_lib_path": "C:/Users/tvl/.conan2/p/b/eiva-cf579c7c05774/p/lib/libfastdds-3.1.lib",
     "fastcdr_lib_path": "C:/Users/tvl/.conan2/p/eiva-1aa07c1c70d2b/p/lib/libfastcdr-2.2.lib",
     "foonathan_memory_lib_path": "C:/Users/tvl/.conan2/p/foonaad5c88c228e49/p/lib/foonathan_memory-0.7.3.lib",
     "tinyxml2_lib_path": "C:/Users/tvl/.conan2/p/tinyx4d92bd199a1ef/p/lib/tinyxml2.lib",
