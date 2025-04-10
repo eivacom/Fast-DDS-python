@@ -25,3 +25,7 @@ fastdds_javascript/src/swig/fastdds_wrap.cxx
 fastdds_javascript_HelloWorldMod/CMakeLists.txt
 fastdds_javascript_HelloWorldMod/master_wrap.cxx
 fastdds_javascript/src/swig/fastdds_wrap.cxx
+fastdds_csharp_examples/master_wrap.cxx
+fastdds_csharp_examples/master_wrap.h
+fastdds_csharp/src/swig/fastdds_wrap.cxx
+fastdds_csharp/src/swig/fastdds_wrap.h
