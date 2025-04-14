@@ -24,6 +24,7 @@
 %ignore eprosima::fastdds::rtps::operator ==(const Locator_t&, const Locator_t&);
 %ignore eprosima::fastdds::rtps::operator !=(const Locator_t&, const Locator_t&);
 
+%ignore eprosima::fastdds::rtps::Locator_t::get_address();
 
 %include "fastdds/rtps/common/Locator.hpp"
 

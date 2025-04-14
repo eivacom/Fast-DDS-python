@@ -26,6 +26,8 @@
 %ignore eprosima::fastdds::dds::ReadCondition::ReadCondition;
 %ignore eprosima::fastdds::dds::ReadCondition::~ReadCondition;
 
+%csmethodmodifiers eprosima::fastdds::dds::Condition::ToString "public override"
+
 %exception eprosima::fastdds::dds::Condition::to_status_condition()
 {
     try

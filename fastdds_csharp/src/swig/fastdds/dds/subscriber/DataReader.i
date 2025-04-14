@@ -24,12 +24,12 @@
 %typemap(doctype) eprosima::fastdds::dds::LoanableSequence<eprosima::fastdds::dds::SampleInfo> "SampleInfoSeq";
 %extend eprosima::fastdds::dds::LoanableSequence<eprosima::fastdds::dds::SampleInfo>
 {
-    size_t __len__() const
+    size_t Count() const
     {
         return self->length();
     }
 
-    const eprosima::fastdds::dds::SampleInfo& __getitem__(size_t i) const
+    const eprosima::fastdds::dds::SampleInfo& At(size_t i) const
     {
         return (*self)[i];
     }
@@ -37,4 +37,5 @@
 
 %ignore eprosima::fastdds::dds::DataReader::guid();
 
+%csmethodmodifiers eprosima::fastdds::dds::DataReader::get_instance_handle "public new"
 %include "fastdds/dds/subscriber/DataReader.hpp"

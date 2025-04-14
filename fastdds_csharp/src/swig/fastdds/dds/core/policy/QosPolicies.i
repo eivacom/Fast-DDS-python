@@ -102,6 +102,15 @@ namespace dds {
 // We must explicitly declare the specializations of the templates
 resource_limited_vector_template(OctetResourceLimitedVector, eprosima::fastdds::rtps::octet)
 
+
+%typemap(cstype) fastdds::rtps::octet "Byte"
+
+%csmethodmodifiers *::clear "public"
+%csmethodmodifiers eprosima::fastdds::dds::PublishModeQosPolicy::clear "public override"
+%csmethodmodifiers eprosima::fastdds::dds::TransportConfigQos::clear "public override"
+%csmethodmodifiers eprosima::fastdds::dds::WireProtocolConfigQos::clear "public override"
+%csmethodmodifiers eprosima::fastdds::dds::QosPolicy::clear "public virtual"
+
 %include "fastdds/dds/core/policy/QosPolicies.hpp"
 
 %exception eprosima::fastdds::dds::PartitionQosPolicy::__getitem__

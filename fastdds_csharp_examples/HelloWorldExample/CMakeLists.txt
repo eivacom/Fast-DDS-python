@@ -1,101 +1,78 @@
-
-cmake_minimum_required(VERSION 3.20)
-
-
-###############################################################################
-# Library for types defined in HelloWorld IDL
-###############################################################################
-
-message(STATUS "Configuring python wrapper for types in HelloWorld...")
-
-###############################################################################
-# Type library on C++
-
-project(HelloWorld)
-
-find_package(fastcdr REQUIRED)
-find_package(fastdds 3 REQUIRED)
-
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
-#Create library for C++ types
-add_library(${PROJECT_NAME} SHARED
-        HelloWorldTypeObjectSupport.cxx
-        HelloWorldPubSubTypes.cxx
-        )
-if(WIN32)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE EPROSIMA_USER_DLL_EXPORT)
-endif(WIN32)
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-target_include_directories(${PROJECT_NAME} PUBLIC
-    ${PROJECT_SOURCE_DIR}
-    )
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    fastcdr
-    fastdds::fastdds
-    )
+# Copyright 2022 Proyectos y Sistemas de Mantenimiento SL (eProsima).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 ###############################################################################
-# Python bindings for type
-set(SWIG_EXECUTABLE "C:/Users/tvl/.conan2/p/b/swig4fe21ed3bac24/p/bin/swig.exe")
-find_package(SWIG)
-if (NOT SWIG_FOUND)
-    # Trick to find swig4.1 in Ubuntu noble.
-    find_program(SWIG_EXECUTABLE NAMES swig4.1 swig)
-    find_package(SWIG REQUIRED)
-endif()
-include(UseSWIG)
-set(CMAKE_SWIG_FLAGS "")
+# Compile python wrapper with SWIG
+###############################################################################
+
+message(STATUS "Configuring FastDDS wrapper for CSharp...")
+
+set(LIB_INSTALL_DIR lib/ CACHE PATH "Installation directory for libraries")
+file(GLOB_RECURSE DDS_TYPE_SOURCES_CXX "*.cxx")
+file(GLOB_RECURSE DDS_TYPE_SOURCES_CPP "*.cpp")
+add_library(dds_types ${DDS_TYPE_SOURCES_CXX} ${DDS_TYPE_SOURCES_CPP})
+
+
+target_link_libraries(dds_types PUBLIC fastdds::fastdds)
 
 set(${PROJECT_NAME}_MODULE
-    HelloWorldWrapper
+    fastdds_idl
     )
 
-set(${PROJECT_NAME}_MODULE_FILES
-    ${PROJECT_NAME}.i
+set(${PROJECT_NAME}_FILE
+    ${CMAKE_CURRENT_BINARY_DIR}/${${PROJECT_NAME}_MODULE}.i
     )
 
-SET_SOURCE_FILES_PROPERTIES(
-    ${${PROJECT_NAME}_MODULE_FILES}
-    PROPERTIES CPLUSPLUS ON
+file(GENERATE
+    OUTPUT ${${PROJECT_NAME}_FILE}
+    INPUT ${${PROJECT_NAME}_MODULE}.i
+    )
+
+set_source_files_properties(${${PROJECT_NAME}_FILE} PROPERTIES
+    CPLUSPLUS ON
     USE_TARGET_INCLUDE_DIRECTORIES TRUE
+    INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}
     )
 
-SWIG_ADD_LIBRARY(${${PROJECT_NAME}_MODULE}
+option(BUILD_DOCUMENTATION "Use doxygen to create product documentation" OFF)
+if (BUILD_DOCUMENTATION)
+    set(CMAKE_SWIG_FLAGS "-doxygen")
+endif (BUILD_DOCUMENTATION)
+
+swig_add_library(${PROJECT_NAME}
     TYPE SHARED
     LANGUAGE csharp
-    SOURCES ${${PROJECT_NAME}_MODULE_FILES})
-
-set_property(TARGET ${${PROJECT_NAME}_MODULE} PROPERTY CXX_STANDARD 11)
-if(UNIX AND CMAKE_SIZEOF_VOID_P EQUAL 8)
-    set_property(TARGET ${${PROJECT_NAME}_MODULE} PROPERTY SWIG_COMPILE_DEFINITIONS SWIGWORDSIZE64)
-endif()
-
-target_link_libraries(${${PROJECT_NAME}_MODULE}
-    fastdds::fastdds
-    ${PROJECT_NAME}
+    SOURCES
+    ${${PROJECT_NAME}_FILE}
     )
 
-# Find the installation path
-#execute_process(COMMAND ${PYTHON_EXECUTABLE} -c "from distutils import sysconfig; print(sysconfig.get_python_lib(plat_specific=True, prefix='${CMAKE_INSTALL_PREFIX}'))"
-#    OUTPUT_VARIABLE _ABS_PYTHON_MODULE_PATH
-#    OUTPUT_STRIP_TRAILING_WHITESPACE
-#    )
-#
-#get_filename_component (_ABS_PYTHON_MODULE_PATH ${_ABS_PYTHON_MODULE_PATH} ABSOLUTE)
-#file (RELATIVE_PATH _REL_PYTHON_MODULE_PATH ${CMAKE_INSTALL_PREFIX} ${_ABS_PYTHON_MODULE_PATH})
-#SET (PYTHON_MODULE_PATH
-#    ${_REL_PYTHON_MODULE_PATH}/${PROJECT_NAME}
-#    )
-#
-## Install
-#install(TARGETS ${PROJECT_NAME}
-#    RUNTIME DESTINATION bin/
-#    LIBRARY DESTINATION lib/
-#    ARCHIVE DESTINATION lib/
-#    )
-#install(TARGETS ${${PROJECT_NAME}_MODULE} DESTINATION ${PYTHON_MODULE_PATH})
-#get_property(support_files TARGET ${${PROJECT_NAME}_MODULE} PROPERTY SWIG_SUPPORT_FILES)
-#install(FILES ${support_files} DESTINATION ${PYTHON_MODULE_PATH} RENAME __init__.py)
+if(UNIX AND CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY
+        SWIG_COMPILE_DEFINITIONS SWIGWORDSIZE64
+        )
+endif()
+
+if(MSVC OR MSVC_IDE)
+    target_compile_options(${PROJECT_NAME} PRIVATE /bigobj)
+endif()
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+target_link_libraries(${PROJECT_NAME}
+    fastcdr
+    fastdds::fastdds
+    dds_types
+    )
 

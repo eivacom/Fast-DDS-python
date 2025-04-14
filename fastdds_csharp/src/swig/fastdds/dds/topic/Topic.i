@@ -21,4 +21,7 @@
 %ignore eprosima::fastdds::dds::Topic::Topic;
 %ignore eprosima::fastdds::dds::Topic::~Topic;
 
+%csmethodmodifiers eprosima::fastdds::dds::Topic::get_participant "public"
+%csmethodmodifiers eprosima::fastdds::dds::Topic::get_impl "public"
+
 %include "fastdds/dds/topic/Topic.hpp"

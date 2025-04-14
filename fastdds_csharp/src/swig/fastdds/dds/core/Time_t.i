@@ -41,8 +41,15 @@
         return obj is Time_t other && Equals(other);
     }
 
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(swigCPtr, swigCMemOwn);
+    }
+
     public static bool operator ==(Time_t p1, Time_t p2)
     {
+        if (ReferenceEquals(p1, p2)) return true;
+        if (p1 is null || p2 is null) return false;
         return p1.Equals(p2);
     }
     
@@ -75,7 +82,9 @@
         return p1.GreaterThanEq(p2);
     }
 %}
-
+%typemap(cscode) eprosima::fastdds::dds::Duration_t %{
+    // Custom code here if needed
+%}
 %csmethodmodifiers eprosima::fastdds::dds::Time_t::Addition "private";
 %csmethodmodifiers eprosima::fastdds::dds::Time_t::Subtract "private";
 %csmethodmodifiers eprosima::fastdds::dds::Time_t::LessThan "private";

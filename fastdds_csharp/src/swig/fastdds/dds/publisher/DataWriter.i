@@ -49,6 +49,9 @@
 %template(DataWriterVector) std::vector<eprosima::fastdds::dds::DataWriter*>;
 %typemap(doctype) std::vector<eprosima::fastdds::dds::DataWriter*> "DataWriterVector";
 
+
+%csmethodmodifiers eprosima::fastdds::dds::DataWriter::get_instance_handle "public new"
+
 %include "fastdds/dds/publisher/DataWriter.hpp"
 
 %clear size_t* removed;

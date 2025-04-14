@@ -27,14 +27,14 @@
 
 // Extend the Subscriber class to add our new method
 %extend eprosima::fastdds::dds::Subscriber {
-    eprosima::fastdds::dds::DataReader* create_datareader_topic(
+    eprosima::fastdds::dds::DataReader* create_datareader(
         eprosima::fastdds::dds::Topic* topic,
             const eprosima::fastdds::dds::DataReaderQos& reader_qos,
             eprosima::fastdds::dds::DataReaderListener* listener = nullptr,
             const eprosima::fastdds::dds::StatusMask& mask = StatusMask::all(),
             std::shared_ptr<fastdds::rtps::IPayloadPool> payload_pool = nullptr) {
         return $self->create_datareader(
-            static_cast<eprosima::fastdds::dds::TopicDescription*>(topic),
+            topic,
             reader_qos,
             listener,
             mask,

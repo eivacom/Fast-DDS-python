@@ -14,6 +14,40 @@
 
 cmake_minimum_required(VERSION 3.22)
 
-project(FastDdsCsharpExamples)
+
+# SWIG: use standard target name.
+if(POLICY CMP0078)
+  cmake_policy(SET CMP0078 NEW)
+endif()
+
+# SWIG: use SWIG_MODULE_NAME property.
+if(POLICY CMP0086)
+  cmake_policy(SET CMP0086 NEW)
+endif()
+
+project(FastDdsCsharpExamples VERSION 2.2.0)
+
+# Set BUILD_TESTING to OFF by default.
+if(NOT BUILD_TESTING)
+    message(STATUS "Tests not compiled by default")
+    set(BUILD_TESTING OFF CACHE BOOL "Enable testing" FORCE)
+endif()
+
+###############################################################################
+# Dependencies
+###############################################################################
+
+find_package(SWIG REQUIRED CONFIG)
+include(UseSWIG)
+set(CMAKE_SWIG_FLAGS "")
+
+find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+
+find_package(fastcdr REQUIRED)
+find_package(fastdds 3 REQUIRED)
+
+###############################################################################
+# Project subdirectories
+###############################################################################
 
 add_subdirectory(HelloWorldExample)

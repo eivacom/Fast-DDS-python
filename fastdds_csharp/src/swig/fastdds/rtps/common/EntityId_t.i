@@ -60,6 +60,8 @@ long hash(const eprosima::fastdds::rtps::EntityId_t& id)
 
     public static bool operator ==(EntityId_t id1, EntityId_t id2)
     {
+        if (ReferenceEquals(id1, id2)) return true;
+        if (id1 is null || id2 is null) return false;
         return id1.Equals(id2);
     }
     

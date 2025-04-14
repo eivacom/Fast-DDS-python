@@ -120,6 +120,9 @@
 %ignore eprosima::fastdds::dds::xtypes::TypeInformation::TypeInformation(TypeInformation&&);
 %ignore eprosima::fastdds::dds::xtypes::TypeInformation::minimal;
 %ignore eprosima::fastdds::dds::xtypes::TypeInformation::complete;
+%ignore eprosima::fastdds::dds::xtypes::TypeFlagBits;
+%ignore eprosima::fastdds::dds::xtypes::MemberFlagBits;
+
 
 %ignore eprosima::fastdds::dds::xtypes::Dummy::Dummy(Dummy&&) noexcept;
 %ignore eprosima::fastdds::dds::xtypes::Dummy::operator ==(const Dummy&) const;
