@@ -23,11 +23,12 @@
 %import(module="fastdds") "fastdds/dds/topic/TopicDataType.hpp";
 %import(module="fastdds") "fastdds/dds/core/policy/QosPolicies.hpp";
 %import(module="fastdds") "fastdds/rtps/common/InstanceHandle.hpp";
+%import(module="fastdds") "fastdds/rtps/common/SerializedPayload.hpp";
 
 %{
 #include "LiveMapPubSubTypes.hpp"
 %}
 
 #define FASTDDS_GEN_API_VER 3
-
+%csmethodmodifiers *::is_plain "public override";
 %include "LiveMapPubSubTypes.hpp"

@@ -94,6 +94,33 @@ long hash(const eprosima::fastdds::rtps::InstanceHandle_t& handle)
     }
 }
 
-%include "fastdds/rtps/common/InstanceHandle.hpp"
+%typemap(csbody) eprosima::fastdds::rtps::InstanceHandle_t %{
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
+  internal InstanceHandle_t(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  public static global::System.Runtime.InteropServices.HandleRef getCPtr(InstanceHandle_t obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(InstanceHandle_t obj) {
+    if (obj != null) {
+      if (!obj.swigCMemOwn)
+        throw new global::System.ApplicationException("Cannot release ownership as memory is not owned");
+      global::System.Runtime.InteropServices.HandleRef ptr = obj.swigCPtr;
+      obj.swigCMemOwn = false;
+      obj.Dispose();
+      return ptr;
+    } else {
+      return new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+    }
+  }
+%}
+
+
+%include "fastdds/rtps/common/InstanceHandle.hpp"
 

@@ -16,4 +16,31 @@
 #include "fastdds/dds/topic/TopicDataType.hpp"
 %}
 
+%typemap(csbody) eprosima::fastdds::dds::TopicDataType %{
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
+
+  protected TopicDataType(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(TopicDataType obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(TopicDataType obj) {
+    if (obj != null) {
+      if (!obj.swigCMemOwn)
+        throw new global::System.ApplicationException("Cannot release ownership as memory is not owned");
+      global::System.Runtime.InteropServices.HandleRef ptr = obj.swigCPtr;
+      obj.swigCMemOwn = false;
+      obj.Dispose();
+      return ptr;
+    } else {
+      return new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+    }
+  }
+%}
+
 %include "fastdds/dds/topic/TopicDataType.hpp"

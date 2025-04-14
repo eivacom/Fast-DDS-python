@@ -16,4 +16,31 @@
 #include "fastdds/rtps/common/SerializedPayload.hpp"
 %}
 
+%typemap(csbody) eprosima::fastdds::rtps::SerializedPayload_t %{
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+  protected bool swigCMemOwn;
+
+  internal SerializedPayload_t(global::System.IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  public static global::System.Runtime.InteropServices.HandleRef getCPtr(SerializedPayload_t obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SerializedPayload_t obj) {
+    if (obj != null) {
+      if (!obj.swigCMemOwn)
+        throw new global::System.ApplicationException("Cannot release ownership as memory is not owned");
+      global::System.Runtime.InteropServices.HandleRef ptr = obj.swigCPtr;
+      obj.swigCMemOwn = false;
+      obj.Dispose();
+      return ptr;
+    } else {
+      return new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+    }
+  }
+%}
+
 %include "fastdds/rtps/common/SerializedPayload.hpp"
