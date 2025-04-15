@@ -21,7 +21,7 @@
 
 %typemap(csbody) IRTPSData 
 %{
-   System.IntPtr GetHandle();
+   global::System.IntPtr GetHandle();
 %}
 
 %inline %{
