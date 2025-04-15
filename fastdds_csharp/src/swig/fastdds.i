@@ -198,3 +198,5 @@ namespace xtypes {
 %include "fastdds/dds/domain/DomainParticipant.i"
 %include "fastdds/dds/domain/DomainParticipantFactory.i"
 %include "fastdds/dds/xtypes/type_representation/TypeObject.i"
+
+%include "fastdds/IRTPSData.i"

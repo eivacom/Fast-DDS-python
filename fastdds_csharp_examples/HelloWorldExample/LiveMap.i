@@ -105,8 +105,14 @@
         return (*self)[i];
     }
 }
-
-
+%typemap(csinterfaces) EIVA::VSLAM::LiveMap %{ global::System.IDisposable, IRTPSData %}
+%typemap(cscode) EIVA::VSLAM::LiveMap
+%{
+  public IntPtr GetHandle()
+  {
+      return swigCPtr.Handle;
+  }
+%}
 // Include the class interfaces
 %include "LiveMap.hpp"
 

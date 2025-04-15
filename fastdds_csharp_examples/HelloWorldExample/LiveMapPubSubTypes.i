@@ -31,4 +31,5 @@
 
 #define FASTDDS_GEN_API_VER 3
 %csmethodmodifiers *::is_plain "public override";
+
 %include "LiveMapPubSubTypes.hpp"

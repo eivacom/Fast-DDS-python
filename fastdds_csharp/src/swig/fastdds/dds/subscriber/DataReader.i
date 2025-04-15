@@ -38,4 +38,12 @@
 %ignore eprosima::fastdds::dds::DataReader::guid();
 
 %csmethodmodifiers eprosima::fastdds::dds::DataReader::get_instance_handle "public new"
+%typemap(cscode) eprosima::fastdds::dds::DataReader
+%{
+  public int take_next_sample(IRTPSData data, SampleInfo info)
+  {
+      int ret = fastddsPINVOKE.DataReader_take_next_sample(swigCPtr, data.GetHandle(), SampleInfo.getCPtr(info));
+      return ret;
+  }
+%}
 %include "fastdds/dds/subscriber/DataReader.hpp"

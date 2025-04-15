@@ -49,7 +49,14 @@
 %template(DataWriterVector) std::vector<eprosima::fastdds::dds::DataWriter*>;
 %typemap(doctype) std::vector<eprosima::fastdds::dds::DataWriter*> "DataWriterVector";
 
-
+%typemap(cscode) eprosima::fastdds::dds::DataWriter
+%{
+  public int write(IRTPSData data)
+  {
+      int ret = fastddsPINVOKE.DataWriter_write__SWIG_0(swigCPtr, data.GetHandle());
+      return ret;
+  }
+%}
 %csmethodmodifiers eprosima::fastdds::dds::DataWriter::get_instance_handle "public new"
 
 %include "fastdds/dds/publisher/DataWriter.hpp"
