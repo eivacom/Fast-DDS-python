@@ -43,7 +43,7 @@
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(swigCPtr, swigCMemOwn);
+        return global::System.HashCode.Combine(swigCPtr, swigCMemOwn);
     }
 
     public static bool operator ==(Time_t p1, Time_t p2)

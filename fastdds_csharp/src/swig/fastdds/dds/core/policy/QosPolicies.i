@@ -103,7 +103,7 @@ namespace dds {
 resource_limited_vector_template(OctetResourceLimitedVector, eprosima::fastdds::rtps::octet)
 
 
-%typemap(cstype) fastdds::rtps::octet "Byte"
+%typemap(cstype) fastdds::rtps::octet "global::System.Byte"
 
 %csmethodmodifiers *::clear "public"
 %csmethodmodifiers eprosima::fastdds::dds::PublishModeQosPolicy::clear "public override"

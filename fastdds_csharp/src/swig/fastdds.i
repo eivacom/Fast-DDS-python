@@ -38,8 +38,8 @@ bool has_statistics()
 bool has_statistics();
 
 %apply void *VOID_INT_PTR { void * }
-%typemap(cstype) fastdds::rtps::octet "Byte"
-%typemap(cstype) octet "Byte"
+%typemap(cstype) fastdds::rtps::octet "global::System.Byte"
+%typemap(cstype) octet "global::System.Byte"
 
 // Some operators are ignored, as there is no such thing in Python.
 // Trying to export them issues a warning
