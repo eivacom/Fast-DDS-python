@@ -51,6 +51,11 @@
 %import(module="fastdds") "fastdds/dds/core/LoanableTypedCollection.hpp"
 %import(module="fastdds") "fastdds/dds/core/LoanableSequence.hpp"
 
+%typemap(csimports) SWIGTYPE 
+%{
+using FastDDS;
+%}
+
 ////////////////////////////////////////////////////////
 // Binding for class EIVA::VSLAM::LiveMap
 ////////////////////////////////////////////////////////

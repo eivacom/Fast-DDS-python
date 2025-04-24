@@ -24,6 +24,12 @@
 %import(module="fastdds") "fastdds/rtps/common/InstanceHandle.hpp";
 %import(module="fastdds") "fastdds/rtps/common/SerializedPayload.hpp";
 
+%typemap(csimports) SWIGTYPE 
+%{
+using FastDDS;
+%}
+
+
 %{
 #include "VSLAMCorePubSubTypes.hpp"
 %}
