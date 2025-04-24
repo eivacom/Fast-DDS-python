@@ -13,8 +13,9 @@
 // limitations under the License.
 
 %{
-#include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.hpp"
+#include "fastdds/rtps/common/ProductVersion_t.hpp"
 %}
 
-%include "fastdds/rtps/builtin/data/ParticipantBuiltinTopicData.hpp"
-%include "fastdds/dds/builtin/topic/ParticipantBuiltinTopicData.hpp"
+// Ignore `operator<<` so SWIG does not try to wrap it
+%ignore operator<<(std::ostream&, eprosima::fastdds::rtps::ProductVersion_t);
+%include "fastdds/rtps/common/ProductVersion_t.hpp"

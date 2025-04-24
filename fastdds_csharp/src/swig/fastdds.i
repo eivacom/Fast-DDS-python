@@ -113,6 +113,7 @@ namespace xtypes {
 %include "fastdds/rtps/common/Guid.i"
 %include "fastdds/rtps/common/PortParameters.i"
 %include "fastdds/rtps/common/InstanceHandle.i"
+%include "fastdds/rtps/common/ProductVersion_t.i"
 %include "fastdds/rtps/history/IPayloadPool.i"
 %include "fastdds/rtps/common/SerializedPayload.i"
 %include "fastdds/utils/collections/ResourceLimitedContainerConfig.i"
@@ -131,6 +132,9 @@ namespace xtypes {
 %include "fastdds/rtps/common/SampleIdentity.i"
 %include "fastdds/rtps/common/WriteParams.i"
 %include "fastdds/rtps/builtin/data/ContentFilterProperty.i"
+%include "fastdds/rtps/writer/WriterDiscoveryStatus.i"
+%include "fastdds/rtps/reader/ReaderDiscoveryStatus.i"
+%include "fastdds/rtps/participant/ParticipantDiscoveryInfo.i"
 //
 %include "fastdds/dds/common/InstanceHandle.i"
 %include "fastdds/dds/core/ReturnCode.i"
