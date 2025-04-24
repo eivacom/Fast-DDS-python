@@ -65,6 +65,8 @@ long hash(const eprosima::fastdds::rtps::InstanceHandle_t& handle)
 
     public static bool operator ==(InstanceHandle_t h1, InstanceHandle_t h2)
     {
+        if (ReferenceEquals(p1, p2)) return true;
+        if (p1 is null || p2 is null) return false;
         return h1.Equals(h2);
     }
     
