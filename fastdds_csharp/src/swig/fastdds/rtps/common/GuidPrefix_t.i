@@ -58,6 +58,8 @@ long hash(const eprosima::fastdds::rtps::GuidPrefix_t& prefix)
 
     public static bool operator ==(GuidPrefix_t p1, GuidPrefix_t p2)
     {
+        if (ReferenceEquals(p1, p2)) return true;
+        if (p1 is null || p2 is null) return false;
         return p1.Equals(p2);
     }
     
