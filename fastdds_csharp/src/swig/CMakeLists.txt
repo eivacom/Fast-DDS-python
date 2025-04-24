@@ -50,6 +50,8 @@ swig_add_library(${PROJECT_NAME}
     SOURCES
     ${${PROJECT_NAME}_FILE}
     )
+	
+set_property(TARGET ${PROJECT_NAME} PROPERTY SWIG_COMPILE_OPTIONS -namespace FastDDS)
 
 if(UNIX AND CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_property(TARGET ${PROJECT_NAME} PROPERTY
