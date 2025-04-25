@@ -100,6 +100,7 @@ namespace xtypes {
 %include "fastcdr/xcdr/optional.i"
 #endif
 
+%include "fastcdr/cdr/fixed_size_string.i"
 %include "fastdds/LibrarySettings.i"
 %include "fastdds/rtps/common/VendorId_t.i"
 %include "fastdds/rtps/common/Types.i"
