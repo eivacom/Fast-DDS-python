@@ -41,13 +41,12 @@
 // Do not worry about the heap allocation, SWIG recognizes the method as a constructor
 // and successfully deallocates on destruction
 %extend eprosima::fastdds::dds::TypeSupport {
-    %apply SWIGTYPE *DISOWN { eprosima::fastdds::dds::TopicDataType* ptr };
+    %typemap(csin) eprosima::fastdds::dds::TopicDataType* "TopicDataType.swigRelease($csinput)"
     TypeSupport(eprosima::fastdds::dds::TopicDataType* ptr)
     {
         return new eprosima::fastdds::dds::TypeSupport(ptr);
     }
 
-    %apply SWIGTYPE *DISOWN { eprosima::fastdds::dds::TopicDataType* ptr };
     void set(eprosima::fastdds::dds::TopicDataType* ptr)
     {
         self->reset(ptr);
