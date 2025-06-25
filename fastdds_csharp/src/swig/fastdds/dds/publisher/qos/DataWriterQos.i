@@ -16,7 +16,6 @@
 #include "fastdds/dds/publisher/qos/DataWriterQos.hpp"
 %}
 
-%ignore eprosima::fastdds::dds::DataWriterQos::representation;
 %ignore eprosima::fastdds::dds::DataWriterQos::throughput_controller;
 
 %ignore eprosima::fastdds::dds::DataWriterQos::operator ==(const DataWriterQos&) const;
